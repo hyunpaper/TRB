@@ -6,13 +6,50 @@ export default function AuthPage() {
   const [password, setPassword] = useState("");
   
 
-  const toggleMode = () => setIsLoginMode(!isLoginMode);
+const toggleMode = () => setIsLoginMode(!isLoginMode);
 
 const handleSubmit = async () => {
+  // 이메일 정규식 검사 함수
+  const isValidEmail = (email: string): boolean => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
   if (isLoginMode) {
-    alert(`로그인 시도: ${email}`);
-    // TODO: 로그인 연동
+    try {
+      const response = await fetch("http://localhost:5186/api/user/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email,
+          password,
+        }),
+      });
+
+      if (!response.ok) {
+        if (response.status === 401) {
+          alert("이메일 또는 비밀번호가 잘못되었습니다.");
+        } else {
+          throw new Error("로그인 실패");
+        }
+        return;
+      }
+
+      alert("로그인 성공!");
+      // TODO: 토큰 저장, 라우팅 등 처리
+    } catch (err) {
+      alert("로그인 중 오류가 발생하였습니다.");
+      console.error(err);
+    }
   } else {
+    //  회원가입 시 이메일 형식 검사 추가
+    if (!isValidEmail(email)) {
+      alert("유효한 이메일 형식이 아닙니다.");
+      return;
+    }
+
     try {
       const response = await fetch("http://localhost:5186/api/user", {
         method: "POST",
@@ -21,23 +58,30 @@ const handleSubmit = async () => {
         },
         body: JSON.stringify({
           email,
-          password: password,  
-          roleId: 1            
+          password,
+          roleId: 1,
         }),
       });
 
       if (!response.ok) {
+        if (response.status === 409) {
+          const message = await response.text();
+          alert(message); // "이미 등록된 이메일입니다."
+          return;
+        }
+
         throw new Error("회원가입 실패");
       }
 
       alert("회원가입 성공!");
-      setIsLoginMode(true); // 회원가입 후 로그인 화면으로 전환
+      setIsLoginMode(true);
     } catch (err) {
-      alert("회원가입 중 오류 발생ㅠㅠ");
+      alert("회원가입 중 오류 발생");
       console.error(err);
     }
   }
 };
+
 
 
   return (

@@ -13,7 +13,6 @@ namespace TRB.Server.Infrastructure.Repositories
 {
     public class UserRepository : IUserRepository
     {
-        private readonly List<User> _users = new();
         private readonly IDbConnectionFactory _connectionFactory;
 
         public UserRepository(IDbConnectionFactory connectionFactory)
@@ -22,17 +21,42 @@ namespace TRB.Server.Infrastructure.Repositories
         }
 
 
-        public Task<User?> GetByEmailAsync(string email)
+        public async Task<User?> GetByEmailAsync(string email)
         {
-            var user = _users.FirstOrDefault(u => u.Email == email);
-            return Task.FromResult(user);
+            using var connection = _connectionFactory.Conn();
+            await connection.OpenAsync();
+
+            using var command = connection.CreateCommand();
+            command.CommandText = @"SELECT user_id, email, password, role_id, created_at, enabled
+                                    FROM user
+                                    WHERE email = @email
+                                    LIMIT 1";
+
+            var emailParam = command.CreateParameter();
+            emailParam.ParameterName = "@email";
+            emailParam.Value = email;
+            command.Parameters.Add(emailParam);
+
+            using var reader = await command.ExecuteReaderAsync();
+
+            if (!await reader.ReadAsync())
+                return null;
+
+            return new User
+            {
+                UserId = Convert.ToInt32(reader["user_id"]),
+                Email = reader["email"].ToString()!,
+                Password = reader["password"].ToString()!,
+                RoleId = Convert.ToInt32(reader["role_id"]),
+                CreatedAt = Convert.ToDateTime(reader["created_at"]),
+                Enabled = reader["enabled"].ToString()!
+            };
         }
 
         public async Task CreateAsync(User user)
         {
-            const string sql = @"
-            INSERT INTO User (email, password, role_id, created_at, enabled)
-            VALUES (@Email, @Password, @RoleId, @CreatedAt, @Enabled);";
+            const string sql = @"INSERT INTO User (email, password, role_id, created_at, enabled)
+                                  VALUES (@Email, @Password, @RoleId, @CreatedAt, @Enabled);";
 
             using var conn = _connectionFactory.Conn();
             await conn.OpenAsync();

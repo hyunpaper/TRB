@@ -7,6 +7,7 @@ using TRB.Server.Application.DTOs;
 using TRB.Server.Application.Interfaces;
 using TRB.Server.Domain.Entities;
 using TRB.Server.Domain.Interfaces;
+using BCrypt.Net;
 
 
 namespace TRB.Server.Application.Services
@@ -37,7 +38,7 @@ namespace TRB.Server.Application.Services
             var user = new User
             {
                 Email = dto.Email,
-                Password = "hashed-password",
+                Password = BCrypt.Net.BCrypt.HashPassword(dto.Password),
                 RoleId = dto.RoleId,
                 CreatedAt = DateTime.UtcNow,
                 Enabled = "Y"
@@ -45,6 +46,15 @@ namespace TRB.Server.Application.Services
 
             await _userRepository.CreateAsync(user);
         }
+
+        public async Task<bool> LoginAsync(LoginDto dto)
+        {
+            var user = await _userRepository.GetByEmailAsync(dto.Email);
+            if (user == null) return false;
+
+            return BCrypt.Net.BCrypt.Verify(dto.Password, user.Password);
+        }
+
 
     }
 }

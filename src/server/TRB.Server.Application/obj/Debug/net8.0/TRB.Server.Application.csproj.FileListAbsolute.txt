@@ -13,3 +13,4 @@ D:\TRB\src\server\TRB.Server.Application\obj\Debug\net8.0\TRB.Server.Application
 D:\TRB\src\server\TRB.Server.Application\obj\Debug\net8.0\refint\TRB.Server.Application.dll
 D:\TRB\src\server\TRB.Server.Application\obj\Debug\net8.0\TRB.Server.Application.pdb
 D:\TRB\src\server\TRB.Server.Application\obj\Debug\net8.0\ref\TRB.Server.Application.dll
+D:\TRB\src\server\TRB.Server.Application\obj\Debug\net8.0\TRB.Server.Application.sourcelink.json

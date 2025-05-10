@@ -13,6 +13,8 @@ namespace TRB.Server.Application.Interfaces
     {
         Task<UserDto?> GetByEmailAsync(string email);
         Task CreateAsync(UserDto dto);
+        Task<bool> LoginAsync(LoginDto dto);
+
     }
 
 }
