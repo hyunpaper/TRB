@@ -1,51 +1,36 @@
 {
   "docusaurus-plugin-content-docs": {
     "default": {
-      "path": "/docs/",
+      "path": "/TRB/docs",
       "versions": [
         {
           "name": "current",
           "label": "Next",
           "isLast": true,
-          "path": "/docs/",
+          "path": "/TRB/docs",
           "mainDocId": "intro",
           "docs": [
             {
               "id": "architecture",
-              "path": "/docs/architecture",
-              "sidebar": "defaultSidebar"
+              "path": "/TRB/docs/architecture",
+              "sidebar": "tutorialSidebar"
             },
             {
               "id": "dev-log/dev-day-1",
-              "path": "/docs/dev-log/dev-day-1",
-              "sidebar": "defaultSidebar"
+              "path": "/TRB/docs/dev-log/dev-day-1",
+              "sidebar": "tutorialSidebar"
             },
             {
               "id": "intro",
-              "path": "/docs/intro",
-              "sidebar": "defaultSidebar"
-            },
-            {
-              "id": "tutorial-extras/manage-docs-versions",
-              "path": "/docs/tutorial-extras/manage-docs-versions",
-              "sidebar": "defaultSidebar"
-            },
-            {
-              "id": "tutorial-extras/translate-your-site",
-              "path": "/docs/tutorial-extras/translate-your-site",
-              "sidebar": "defaultSidebar"
-            },
-            {
-              "id": "/category/tutorial---extras",
-              "path": "/docs/category/tutorial---extras",
-              "sidebar": "defaultSidebar"
+              "path": "/TRB/docs/intro",
+              "sidebar": "tutorialSidebar"
             }
           ],
           "draftIds": [],
           "sidebars": {
-            "defaultSidebar": {
+            "tutorialSidebar": {
               "link": {
-                "path": "/docs/intro",
+                "path": "/TRB/docs/intro",
                 "label": "intro"
               }
             }

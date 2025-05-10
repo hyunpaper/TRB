@@ -1,5 +1,5 @@
 {
-  "permalink": "/docs/blog/first-blog-post",
+  "permalink": "/TRB/blog/first-blog-post",
   "source": "@site/blog/2019-05-28-first-blog-post.md",
   "title": "First Blog Post",
   "description": "Lorem ipsum dolor sit amet...",
@@ -8,13 +8,13 @@
     {
       "inline": false,
       "label": "Hola",
-      "permalink": "/docs/blog/tags/hola",
+      "permalink": "/TRB/blog/tags/hola",
       "description": "Hola tag description"
     },
     {
       "inline": false,
       "label": "Docusaurus",
-      "permalink": "/docs/blog/tags/docusaurus",
+      "permalink": "/TRB/blog/tags/docusaurus",
       "description": "Docusaurus tag description"
     }
   ],
@@ -26,7 +26,7 @@
       "title": "Docusaurus maintainer",
       "url": "https://sebastienlorber.com",
       "page": {
-        "permalink": "/docs/blog/authors/all-sebastien-lorber-articles"
+        "permalink": "/TRB/blog/authors/all-sebastien-lorber-articles"
       },
       "socials": {
         "x": "https://x.com/sebastienlorber",
@@ -42,7 +42,7 @@
       "title": "Front End Engineer @ Facebook",
       "url": "https://github.com/yangshun",
       "page": {
-        "permalink": "/docs/blog/authors/yangshun"
+        "permalink": "/TRB/blog/authors/yangshun"
       },
       "socials": {
         "x": "https://x.com/yangshunz",
@@ -67,6 +67,6 @@
   "unlisted": false,
   "prevItem": {
     "title": "Long Blog Post",
-    "permalink": "/docs/blog/long-blog-post"
+    "permalink": "/TRB/blog/long-blog-post"
   }
 }

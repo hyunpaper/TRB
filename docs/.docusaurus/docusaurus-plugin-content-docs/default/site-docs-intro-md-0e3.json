@@ -5,7 +5,7 @@
   "source": "@site/docs/intro.md",
   "sourceDirName": ".",
   "slug": "/intro",
-  "permalink": "/docs/intro",
+  "permalink": "/TRB/docs/intro",
   "draft": false,
   "unlisted": false,
   "tags": [],
@@ -14,9 +14,9 @@
   "frontMatter": {
     "sidebar_position": 1
   },
-  "sidebar": "defaultSidebar",
+  "sidebar": "tutorialSidebar",
   "next": {
-    "title": "Tutorial - Extras",
-    "permalink": "/docs/category/tutorial---extras"
+    "title": "개발 1일차 (Monolith, Clean Architecture, UserService)",
+    "permalink": "/TRB/docs/dev-log/dev-day-1"
   }
 }

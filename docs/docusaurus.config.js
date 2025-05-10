@@ -1,49 +1,44 @@
 // @ts-check
-// `@type` JSDoc annotations allow editor autocompletion and type checking
-// (when paired with `@ts-check`).
-// There are various equivalent ways to declare your Docusaurus config.
-// See: https://docusaurus.io/docs/api/docusaurus-config
+import { themes as prismThemes } from 'prism-react-renderer';
 
-import {themes as prismThemes} from 'prism-react-renderer';
-
-// This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
-
-module.exports = {
+/** @type {import('@docusaurus/types').Config} */
+const config = {
   title: 'TRB Docs',
-  url: 'https://hyunpaper.github.io',         // GitHub Pages 도메인
-  baseUrl: '/docs/',                          // 반드시 `/레포이름/`
+  url: 'https://hyunpaper.github.io',
+  baseUrl: '/TRB/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
-  trailingSlash: false, 
+  trailingSlash: false,
   favicon: 'img/favicon.ico',
-  organizationName: 'hyunpaper',              // GitHub 유저명
-  projectName: 'docs',                        // GitHub 레포 이름
-  deploymentBranch: 'gh-pages',    
-
+  organizationName: 'hyunpaper',
+  projectName: 'TRB',
+  deploymentBranch: 'gh-pages',
 
   presets: [
     [
       'classic',
       {
         docs: {
-          routeBasePath: '/',                 // 옵션: 문서를 root(/)에 표시하려면 '/'
+          sidebarPath: require.resolve('./sidebars.js'),
+        },
+        theme: {
+          customCss: require.resolve('./src/css/custom.css'),
         },
       },
     ],
   ],
 
-  
   themeConfig: {
     navbar: {
-      title: 'TRB Docs', // 좌측 로고 텍스트
+      title: 'TRB Docs',
       logo: {
         alt: 'TRB Logo',
-        src: 'img/logo.svg', // 기본 제공 이미지 경로 (원하면 img 폴더에 새 로고 넣을 수 있음)
+        src: 'img/logo.svg',
       },
       items: [
         {
           type: 'doc',
-          docId: 'intro', 
+          docId: 'intro',
           position: 'left',
           label: '소개',
         },
@@ -60,13 +55,13 @@ module.exports = {
           label: '개발 이력',
         },
         {
-          href: 'https://github.com/your-org/trb',
+          href: 'https://github.com/hyunpaper/TRB',
           label: 'GitHub',
           position: 'right',
         },
       ],
     },
-  },  
+  },
 };
 
-export default module.exports;
+export default config;

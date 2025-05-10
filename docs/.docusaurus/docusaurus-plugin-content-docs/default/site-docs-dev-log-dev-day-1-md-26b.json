@@ -5,24 +5,24 @@
   "source": "@site/docs/dev-log/dev-day-1.md",
   "sourceDirName": "dev-log",
   "slug": "/dev-log/dev-day-1",
-  "permalink": "/docs/dev-log/dev-day-1",
+  "permalink": "/TRB/docs/dev-log/dev-day-1",
   "draft": false,
   "unlisted": false,
   "tags": [
     {
       "inline": true,
       "label": "user-service",
-      "permalink": "/docs/tags/user-service"
+      "permalink": "/TRB/docs/tags/user-service"
     },
     {
       "inline": true,
       "label": "react",
-      "permalink": "/docs/tags/react"
+      "permalink": "/TRB/docs/tags/react"
     },
     {
       "inline": true,
       "label": "clean-architecture",
-      "permalink": "/docs/tags/clean-architecture"
+      "permalink": "/TRB/docs/tags/clean-architecture"
     }
   ],
   "version": "current",
@@ -36,9 +36,13 @@
       "clean-architecture"
     ]
   },
-  "sidebar": "defaultSidebar",
+  "sidebar": "tutorialSidebar",
   "previous": {
+    "title": "Tutorial Intro",
+    "permalink": "/TRB/docs/intro"
+  },
+  "next": {
     "title": "프로젝트 구조 및 아키텍처",
-    "permalink": "/docs/architecture"
+    "permalink": "/TRB/docs/architecture"
   }
 }

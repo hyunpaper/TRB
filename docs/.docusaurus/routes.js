@@ -3,208 +3,190 @@ import ComponentCreator from '@docusaurus/ComponentCreator';
 
 export default [
   {
-    path: '/docs/__docusaurus/debug',
-    component: ComponentCreator('/docs/__docusaurus/debug', 'e58'),
+    path: '/TRB/__docusaurus/debug',
+    component: ComponentCreator('/TRB/__docusaurus/debug', 'e68'),
     exact: true
   },
   {
-    path: '/docs/__docusaurus/debug/config',
-    component: ComponentCreator('/docs/__docusaurus/debug/config', '2ce'),
+    path: '/TRB/__docusaurus/debug/config',
+    component: ComponentCreator('/TRB/__docusaurus/debug/config', '9f6'),
     exact: true
   },
   {
-    path: '/docs/__docusaurus/debug/content',
-    component: ComponentCreator('/docs/__docusaurus/debug/content', '11b'),
+    path: '/TRB/__docusaurus/debug/content',
+    component: ComponentCreator('/TRB/__docusaurus/debug/content', 'f1f'),
     exact: true
   },
   {
-    path: '/docs/__docusaurus/debug/globalData',
-    component: ComponentCreator('/docs/__docusaurus/debug/globalData', 'f13'),
+    path: '/TRB/__docusaurus/debug/globalData',
+    component: ComponentCreator('/TRB/__docusaurus/debug/globalData', 'eb4'),
     exact: true
   },
   {
-    path: '/docs/__docusaurus/debug/metadata',
-    component: ComponentCreator('/docs/__docusaurus/debug/metadata', 'bff'),
+    path: '/TRB/__docusaurus/debug/metadata',
+    component: ComponentCreator('/TRB/__docusaurus/debug/metadata', '8e6'),
     exact: true
   },
   {
-    path: '/docs/__docusaurus/debug/registry',
-    component: ComponentCreator('/docs/__docusaurus/debug/registry', '830'),
+    path: '/TRB/__docusaurus/debug/registry',
+    component: ComponentCreator('/TRB/__docusaurus/debug/registry', 'bc9'),
     exact: true
   },
   {
-    path: '/docs/__docusaurus/debug/routes',
-    component: ComponentCreator('/docs/__docusaurus/debug/routes', '13e'),
+    path: '/TRB/__docusaurus/debug/routes',
+    component: ComponentCreator('/TRB/__docusaurus/debug/routes', 'c5f'),
     exact: true
   },
   {
-    path: '/docs/blog',
-    component: ComponentCreator('/docs/blog', 'e9e'),
+    path: '/TRB/blog',
+    component: ComponentCreator('/TRB/blog', '19a'),
     exact: true
   },
   {
-    path: '/docs/blog/archive',
-    component: ComponentCreator('/docs/blog/archive', '5ff'),
+    path: '/TRB/blog/archive',
+    component: ComponentCreator('/TRB/blog/archive', '3b2'),
     exact: true
   },
   {
-    path: '/docs/blog/authors',
-    component: ComponentCreator('/docs/blog/authors', '164'),
+    path: '/TRB/blog/authors',
+    component: ComponentCreator('/TRB/blog/authors', 'd03'),
     exact: true
   },
   {
-    path: '/docs/blog/authors/all-sebastien-lorber-articles',
-    component: ComponentCreator('/docs/blog/authors/all-sebastien-lorber-articles', '5f1'),
+    path: '/TRB/blog/authors/all-sebastien-lorber-articles',
+    component: ComponentCreator('/TRB/blog/authors/all-sebastien-lorber-articles', '244'),
     exact: true
   },
   {
-    path: '/docs/blog/authors/yangshun',
-    component: ComponentCreator('/docs/blog/authors/yangshun', 'f7a'),
+    path: '/TRB/blog/authors/yangshun',
+    component: ComponentCreator('/TRB/blog/authors/yangshun', 'a77'),
     exact: true
   },
   {
-    path: '/docs/blog/first-blog-post',
-    component: ComponentCreator('/docs/blog/first-blog-post', '451'),
+    path: '/TRB/blog/first-blog-post',
+    component: ComponentCreator('/TRB/blog/first-blog-post', '81e'),
     exact: true
   },
   {
-    path: '/docs/blog/long-blog-post',
-    component: ComponentCreator('/docs/blog/long-blog-post', '135'),
+    path: '/TRB/blog/long-blog-post',
+    component: ComponentCreator('/TRB/blog/long-blog-post', '659'),
     exact: true
   },
   {
-    path: '/docs/blog/mdx-blog-post',
-    component: ComponentCreator('/docs/blog/mdx-blog-post', '369'),
+    path: '/TRB/blog/mdx-blog-post',
+    component: ComponentCreator('/TRB/blog/mdx-blog-post', '160'),
     exact: true
   },
   {
-    path: '/docs/blog/tags',
-    component: ComponentCreator('/docs/blog/tags', 'a37'),
+    path: '/TRB/blog/tags',
+    component: ComponentCreator('/TRB/blog/tags', '43c'),
     exact: true
   },
   {
-    path: '/docs/blog/tags/docusaurus',
-    component: ComponentCreator('/docs/blog/tags/docusaurus', '987'),
+    path: '/TRB/blog/tags/docusaurus',
+    component: ComponentCreator('/TRB/blog/tags/docusaurus', '632'),
     exact: true
   },
   {
-    path: '/docs/blog/tags/facebook',
-    component: ComponentCreator('/docs/blog/tags/facebook', 'a94'),
+    path: '/TRB/blog/tags/facebook',
+    component: ComponentCreator('/TRB/blog/tags/facebook', 'bea'),
     exact: true
   },
   {
-    path: '/docs/blog/tags/hello',
-    component: ComponentCreator('/docs/blog/tags/hello', '941'),
+    path: '/TRB/blog/tags/hello',
+    component: ComponentCreator('/TRB/blog/tags/hello', '0e9'),
     exact: true
   },
   {
-    path: '/docs/blog/tags/hola',
-    component: ComponentCreator('/docs/blog/tags/hola', 'ae4'),
+    path: '/TRB/blog/tags/hola',
+    component: ComponentCreator('/TRB/blog/tags/hola', '6a9'),
     exact: true
   },
   {
-    path: '/docs/blog/welcome',
-    component: ComponentCreator('/docs/blog/welcome', 'f3f'),
+    path: '/TRB/blog/welcome',
+    component: ComponentCreator('/TRB/blog/welcome', 'f86'),
     exact: true
   },
   {
-    path: '/docs/markdown-page',
-    component: ComponentCreator('/docs/markdown-page', 'c78'),
+    path: '/TRB/markdown-page',
+    component: ComponentCreator('/TRB/markdown-page', '1c1'),
     exact: true
   },
   {
-    path: '/docs/',
-    component: ComponentCreator('/docs/', '6fa'),
-    exact: true
-  },
-  {
-    path: '/docs/',
-    component: ComponentCreator('/docs/', '4ad'),
+    path: '/TRB/docs',
+    component: ComponentCreator('/TRB/docs', '64b'),
     routes: [
       {
-        path: '/docs/',
-        component: ComponentCreator('/docs/', '31c'),
+        path: '/TRB/docs',
+        component: ComponentCreator('/TRB/docs', '89d'),
         routes: [
           {
-            path: '/docs/tags',
-            component: ComponentCreator('/docs/tags', 'fce'),
+            path: '/TRB/docs/tags',
+            component: ComponentCreator('/TRB/docs/tags', '93a'),
             exact: true
           },
           {
-            path: '/docs/tags/architecture',
-            component: ComponentCreator('/docs/tags/architecture', '926'),
+            path: '/TRB/docs/tags/architecture',
+            component: ComponentCreator('/TRB/docs/tags/architecture', '180'),
             exact: true
           },
           {
-            path: '/docs/tags/clean-architecture',
-            component: ComponentCreator('/docs/tags/clean-architecture', 'da2'),
+            path: '/TRB/docs/tags/clean-architecture',
+            component: ComponentCreator('/TRB/docs/tags/clean-architecture', '57c'),
             exact: true
           },
           {
-            path: '/docs/tags/monolith',
-            component: ComponentCreator('/docs/tags/monolith', '3f9'),
+            path: '/TRB/docs/tags/monolith',
+            component: ComponentCreator('/TRB/docs/tags/monolith', '692'),
             exact: true
           },
           {
-            path: '/docs/tags/react',
-            component: ComponentCreator('/docs/tags/react', '2eb'),
+            path: '/TRB/docs/tags/react',
+            component: ComponentCreator('/TRB/docs/tags/react', 'b32'),
             exact: true
           },
           {
-            path: '/docs/tags/structure',
-            component: ComponentCreator('/docs/tags/structure', '10a'),
+            path: '/TRB/docs/tags/structure',
+            component: ComponentCreator('/TRB/docs/tags/structure', '817'),
             exact: true
           },
           {
-            path: '/docs/tags/user-service',
-            component: ComponentCreator('/docs/tags/user-service', '8a5'),
+            path: '/TRB/docs/tags/user-service',
+            component: ComponentCreator('/TRB/docs/tags/user-service', 'e56'),
             exact: true
           },
           {
-            path: '/docs/',
-            component: ComponentCreator('/docs/', '417'),
+            path: '/TRB/docs',
+            component: ComponentCreator('/TRB/docs', '57c'),
             routes: [
               {
-                path: '/docs/architecture',
-                component: ComponentCreator('/docs/architecture', '89f'),
+                path: '/TRB/docs/architecture',
+                component: ComponentCreator('/TRB/docs/architecture', '8be'),
                 exact: true,
-                sidebar: "defaultSidebar"
+                sidebar: "tutorialSidebar"
               },
               {
-                path: '/docs/category/tutorial---extras',
-                component: ComponentCreator('/docs/category/tutorial---extras', 'fc3'),
+                path: '/TRB/docs/dev-log/dev-day-1',
+                component: ComponentCreator('/TRB/docs/dev-log/dev-day-1', '18c'),
                 exact: true,
-                sidebar: "defaultSidebar"
+                sidebar: "tutorialSidebar"
               },
               {
-                path: '/docs/dev-log/dev-day-1',
-                component: ComponentCreator('/docs/dev-log/dev-day-1', 'deb'),
+                path: '/TRB/docs/intro',
+                component: ComponentCreator('/TRB/docs/intro', '4f3'),
                 exact: true,
-                sidebar: "defaultSidebar"
-              },
-              {
-                path: '/docs/intro',
-                component: ComponentCreator('/docs/intro', '44d'),
-                exact: true,
-                sidebar: "defaultSidebar"
-              },
-              {
-                path: '/docs/tutorial-extras/manage-docs-versions',
-                component: ComponentCreator('/docs/tutorial-extras/manage-docs-versions', 'b22'),
-                exact: true,
-                sidebar: "defaultSidebar"
-              },
-              {
-                path: '/docs/tutorial-extras/translate-your-site',
-                component: ComponentCreator('/docs/tutorial-extras/translate-your-site', 'ae9'),
-                exact: true,
-                sidebar: "defaultSidebar"
+                sidebar: "tutorialSidebar"
               }
             ]
           }
         ]
       }
     ]
+  },
+  {
+    path: '/TRB/',
+    component: ComponentCreator('/TRB/', '4ae'),
+    exact: true
   },
   {
     path: '*',

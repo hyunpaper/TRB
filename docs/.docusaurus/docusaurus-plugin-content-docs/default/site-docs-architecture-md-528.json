@@ -5,29 +5,29 @@
   "source": "@site/docs/architecture.md",
   "sourceDirName": ".",
   "slug": "/architecture",
-  "permalink": "/docs/architecture",
+  "permalink": "/TRB/docs/architecture",
   "draft": false,
   "unlisted": false,
   "tags": [
     {
       "inline": true,
       "label": "architecture",
-      "permalink": "/docs/tags/architecture"
+      "permalink": "/TRB/docs/tags/architecture"
     },
     {
       "inline": true,
       "label": "structure",
-      "permalink": "/docs/tags/structure"
+      "permalink": "/TRB/docs/tags/structure"
     },
     {
       "inline": true,
       "label": "monolith",
-      "permalink": "/docs/tags/monolith"
+      "permalink": "/TRB/docs/tags/monolith"
     },
     {
       "inline": true,
       "label": "clean-architecture",
-      "permalink": "/docs/tags/clean-architecture"
+      "permalink": "/TRB/docs/tags/clean-architecture"
     }
   ],
   "version": "current",
@@ -42,13 +42,9 @@
       "clean-architecture"
     ]
   },
-  "sidebar": "defaultSidebar",
+  "sidebar": "tutorialSidebar",
   "previous": {
-    "title": "Translate your site",
-    "permalink": "/docs/tutorial-extras/translate-your-site"
-  },
-  "next": {
     "title": "개발 1일차 (Monolith, Clean Architecture, UserService)",
-    "permalink": "/docs/dev-log/dev-day-1"
+    "permalink": "/TRB/docs/dev-log/dev-day-1"
   }
 }

@@ -1,5 +1,5 @@
 {
-  "permalink": "/docs/blog/long-blog-post",
+  "permalink": "/TRB/blog/long-blog-post",
   "source": "@site/blog/2019-05-29-long-blog-post.md",
   "title": "Long Blog Post",
   "description": "This is the summary of a very long blog post,",
@@ -8,13 +8,13 @@
     {
       "inline": false,
       "label": "Hello",
-      "permalink": "/docs/blog/tags/hello",
+      "permalink": "/TRB/blog/tags/hello",
       "description": "Hello tag description"
     },
     {
       "inline": false,
       "label": "Docusaurus",
-      "permalink": "/docs/blog/tags/docusaurus",
+      "permalink": "/TRB/blog/tags/docusaurus",
       "description": "Docusaurus tag description"
     }
   ],
@@ -26,7 +26,7 @@
       "title": "Front End Engineer @ Facebook",
       "url": "https://github.com/yangshun",
       "page": {
-        "permalink": "/docs/blog/authors/yangshun"
+        "permalink": "/TRB/blog/authors/yangshun"
       },
       "socials": {
         "x": "https://x.com/yangshunz",
@@ -48,10 +48,10 @@
   "unlisted": false,
   "prevItem": {
     "title": "MDX Blog Post",
-    "permalink": "/docs/blog/mdx-blog-post"
+    "permalink": "/TRB/blog/mdx-blog-post"
   },
   "nextItem": {
     "title": "First Blog Post",
-    "permalink": "/docs/blog/first-blog-post"
+    "permalink": "/TRB/blog/first-blog-post"
   }
 }

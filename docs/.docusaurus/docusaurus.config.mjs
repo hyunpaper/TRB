@@ -6,20 +6,23 @@
 export default {
   "title": "TRB Docs",
   "url": "https://hyunpaper.github.io",
-  "baseUrl": "/docs/",
+  "baseUrl": "/TRB/",
   "onBrokenLinks": "throw",
   "onBrokenMarkdownLinks": "warn",
   "trailingSlash": false,
   "favicon": "img/favicon.ico",
   "organizationName": "hyunpaper",
-  "projectName": "docs",
+  "projectName": "TRB",
   "deploymentBranch": "gh-pages",
   "presets": [
     [
       "classic",
       {
         "docs": {
-          "routeBasePath": "/"
+          "sidebarPath": "D:\\TRB\\docs\\sidebars.js"
+        },
+        "theme": {
+          "customCss": "D:\\TRB\\docs\\src\\css\\custom.css"
         }
       }
     ]
@@ -51,7 +54,7 @@ export default {
           "label": "개발 이력"
         },
         {
-          "href": "https://github.com/your-org/trb",
+          "href": "https://github.com/hyunpaper/TRB",
           "label": "GitHub",
           "position": "right"
         }
