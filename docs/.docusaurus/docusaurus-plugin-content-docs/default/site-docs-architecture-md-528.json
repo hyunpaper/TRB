@@ -1,0 +1,48 @@
+{
+  "id": "architecture",
+  "title": "프로젝트 구조 및 아키텍처",
+  "description": "TRB 프로젝트의 폴더 구조 및 마이크로서비스 아키텍처 설계 개요",
+  "source": "@site/docs/architecture.md",
+  "sourceDirName": ".",
+  "slug": "/architecture",
+  "permalink": "/docs/architecture",
+  "draft": false,
+  "unlisted": false,
+  "tags": [
+    {
+      "inline": true,
+      "label": "architecture",
+      "permalink": "/docs/tags/architecture"
+    },
+    {
+      "inline": true,
+      "label": "structure",
+      "permalink": "/docs/tags/structure"
+    },
+    {
+      "inline": true,
+      "label": "msa",
+      "permalink": "/docs/tags/msa"
+    }
+  ],
+  "version": "current",
+  "frontMatter": {
+    "id": "architecture",
+    "title": "프로젝트 구조 및 아키텍처",
+    "description": "TRB 프로젝트의 폴더 구조 및 마이크로서비스 아키텍처 설계 개요",
+    "tags": [
+      "architecture",
+      "structure",
+      "msa"
+    ]
+  },
+  "sidebar": "defaultSidebar",
+  "previous": {
+    "title": "Translate your site",
+    "permalink": "/docs/tutorial-extras/translate-your-site"
+  },
+  "next": {
+    "title": "개발 1일차 (React, MSA, UserService)",
+    "permalink": "/docs/dev-log/dev-day-1"
+  }
+}

@@ -1,0 +1,6 @@
+@TRB.Server.Presentation_HostAddress = http://localhost:5186
+
+GET {{TRB.Server.Presentation_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

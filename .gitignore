@@ -1,0 +1,16 @@
+# Node
+node_modules/
+dist/
+
+# .NET
+bin/
+obj/
+*.user
+*.suo
+
+# Build
+*.log
+.vscode/
+.env
+
+.vs/

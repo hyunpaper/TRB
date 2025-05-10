@@ -1,0 +1,17 @@
+D:\TRB\src\server\TRB.Server.Infrastructure\bin\Debug\net8.0\TRB.Server.Infrastructure.deps.json
+D:\TRB\src\server\TRB.Server.Infrastructure\bin\Debug\net8.0\TRB.Server.Infrastructure.dll
+D:\TRB\src\server\TRB.Server.Infrastructure\bin\Debug\net8.0\TRB.Server.Infrastructure.pdb
+D:\TRB\src\server\TRB.Server.Infrastructure\bin\Debug\net8.0\TRB.Server.Application.dll
+D:\TRB\src\server\TRB.Server.Infrastructure\bin\Debug\net8.0\TRB.Server.Domain.dll
+D:\TRB\src\server\TRB.Server.Infrastructure\bin\Debug\net8.0\TRB.Server.Application.pdb
+D:\TRB\src\server\TRB.Server.Infrastructure\bin\Debug\net8.0\TRB.Server.Domain.pdb
+D:\TRB\src\server\TRB.Server.Infrastructure\obj\Debug\net8.0\TRB.Server.Infrastructure.csproj.AssemblyReference.cache
+D:\TRB\src\server\TRB.Server.Infrastructure\obj\Debug\net8.0\TRB.Server.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+D:\TRB\src\server\TRB.Server.Infrastructure\obj\Debug\net8.0\TRB.Server.Infrastructure.AssemblyInfoInputs.cache
+D:\TRB\src\server\TRB.Server.Infrastructure\obj\Debug\net8.0\TRB.Server.Infrastructure.AssemblyInfo.cs
+D:\TRB\src\server\TRB.Server.Infrastructure\obj\Debug\net8.0\TRB.Server.Infrastructure.csproj.CoreCompileInputs.cache
+D:\TRB\src\server\TRB.Server.Infrastructure\obj\Debug\net8.0\TRB.Serv.2F2D6AEA.Up2Date
+D:\TRB\src\server\TRB.Server.Infrastructure\obj\Debug\net8.0\TRB.Server.Infrastructure.dll
+D:\TRB\src\server\TRB.Server.Infrastructure\obj\Debug\net8.0\refint\TRB.Server.Infrastructure.dll
+D:\TRB\src\server\TRB.Server.Infrastructure\obj\Debug\net8.0\TRB.Server.Infrastructure.pdb
+D:\TRB\src\server\TRB.Server.Infrastructure\obj\Debug\net8.0\ref\TRB.Server.Infrastructure.dll

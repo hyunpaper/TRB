@@ -1,0 +1,39 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "TRB.Server.Application/1.0.0": {
+        "dependencies": {
+          "TRB.Server.Domain": "1.0.0"
+        },
+        "runtime": {
+          "TRB.Server.Application.dll": {}
+        }
+      },
+      "TRB.Server.Domain/1.0.0": {
+        "runtime": {
+          "TRB.Server.Domain.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "TRB.Server.Application/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "TRB.Server.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
