@@ -256,13 +256,13 @@
     },
     "config": "config---docs-5-e-9-4ea"
   },
-  "/docs/-d6f": {
+  "/docs/-4ad": {
     "__comp": "__comp---theme-docs-root-5-e-9-0b6",
     "__context": {
       "plugin": "plugin---docs-aba-4f5"
     }
   },
-  "/docs/-7ea": {
+  "/docs/-31c": {
     "__comp": "__comp---theme-doc-version-roota-7-b-5de",
     "__props": "__props---docs-11-b-f70"
   },
@@ -274,9 +274,13 @@
     "__comp": "__comp---theme-doc-tag-doc-list-pagedf-2-9f0",
     "__props": "__props---docs-tags-architecture-7-de-e73"
   },
-  "/docs/tags/msa-73b": {
+  "/docs/tags/clean-architecture-da2": {
     "__comp": "__comp---theme-doc-tag-doc-list-pagedf-2-9f0",
-    "__props": "__props---docs-tags-msa-17-e-62e"
+    "__props": "__props---docs-tags-clean-architecturebf-0-992"
+  },
+  "/docs/tags/monolith-3f9": {
+    "__comp": "__comp---theme-doc-tag-doc-list-pagedf-2-9f0",
+    "__props": "__props---docs-tags-monolith-3-ad-1d1"
   },
   "/docs/tags/react-2eb": {
     "__comp": "__comp---theme-doc-tag-doc-list-pagedf-2-9f0",
@@ -290,16 +294,12 @@
     "__comp": "__comp---theme-doc-tag-doc-list-pagedf-2-9f0",
     "__props": "__props---docs-tags-user-service-011-dd8"
   },
-  "/docs/-b13": {
+  "/docs/-417": {
     "__comp": "__comp---theme-doc-roota-94-67a"
   },
   "/docs/architecture-89f": {
     "__comp": "__comp---theme-doc-item-178-a40",
     "content": "content---docs-architecture-528-86f"
-  },
-  "/docs/category/tutorial---basics-d44": {
-    "__comp": "__comp---theme-doc-category-generated-index-page-14-e-640",
-    "__props": "__props---docs-category-tutorial-basicsc-8-a-e51"
   },
   "/docs/category/tutorial---extras-fc3": {
     "__comp": "__comp---theme-doc-category-generated-index-page-14-e-640",
@@ -312,30 +312,6 @@
   "/docs/intro-44d": {
     "__comp": "__comp---theme-doc-item-178-a40",
     "content": "content---docs-intro-0-e-3-be1"
-  },
-  "/docs/tutorial-basics/congratulations-eb0": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-tutorial-basics-congratulations-822-958"
-  },
-  "/docs/tutorial-basics/create-a-blog-post-384": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-tutorial-basics-create-a-blog-post-533-e85"
-  },
-  "/docs/tutorial-basics/create-a-document-4d7": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-tutorial-basics-create-a-document-1-e-4-078"
-  },
-  "/docs/tutorial-basics/create-a-page-a4a": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-tutorial-basics-create-a-page-5-c-8-e19"
-  },
-  "/docs/tutorial-basics/deploy-your-site-d8b": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-tutorial-basics-deploy-your-sitef-55-a3f"
-  },
-  "/docs/tutorial-basics/markdown-features-209": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-tutorial-basics-markdown-features-18-c-a79"
   },
   "/docs/tutorial-extras/manage-docs-versions-b22": {
     "__comp": "__comp---theme-doc-item-178-a40",

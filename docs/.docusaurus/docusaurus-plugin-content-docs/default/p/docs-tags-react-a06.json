@@ -1,1 +1,1 @@
-{"tag":{"label":"react","permalink":"/docs/tags/react","allTagsPath":"/docs/tags","count":1,"items":[{"id":"dev-log/dev-day-1","title":"개발 1일차 (React, MSA, UserService)","description":"TRB 프로젝트의 프론트 및 백엔드 구조 설계 기록","permalink":"/docs/dev-log/dev-day-1"}],"unlisted":false}}
+{"tag":{"label":"react","permalink":"/docs/tags/react","allTagsPath":"/docs/tags","count":1,"items":[{"id":"dev-log/dev-day-1","title":"개발 1일차 (Monolith, Clean Architecture, UserService)","description":"TRB 프로젝트의 프론트 및 백엔드 구조 설계 기록","permalink":"/docs/dev-log/dev-day-1"}],"unlisted":false}}

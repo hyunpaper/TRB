@@ -1,7 +1,7 @@
 {
   "id": "architecture",
   "title": "프로젝트 구조 및 아키텍처",
-  "description": "TRB 프로젝트의 폴더 구조 및 마이크로서비스 아키텍처 설계 개요",
+  "description": "TRB 프로젝트의 폴더 구조 및 클린 아키텍처 설계 개요",
   "source": "@site/docs/architecture.md",
   "sourceDirName": ".",
   "slug": "/architecture",
@@ -21,19 +21,25 @@
     },
     {
       "inline": true,
-      "label": "msa",
-      "permalink": "/docs/tags/msa"
+      "label": "monolith",
+      "permalink": "/docs/tags/monolith"
+    },
+    {
+      "inline": true,
+      "label": "clean-architecture",
+      "permalink": "/docs/tags/clean-architecture"
     }
   ],
   "version": "current",
   "frontMatter": {
     "id": "architecture",
     "title": "프로젝트 구조 및 아키텍처",
-    "description": "TRB 프로젝트의 폴더 구조 및 마이크로서비스 아키텍처 설계 개요",
+    "description": "TRB 프로젝트의 폴더 구조 및 클린 아키텍처 설계 개요",
     "tags": [
       "architecture",
       "structure",
-      "msa"
+      "monolith",
+      "clean-architecture"
     ]
   },
   "sidebar": "defaultSidebar",
@@ -42,7 +48,7 @@
     "permalink": "/docs/tutorial-extras/translate-your-site"
   },
   "next": {
-    "title": "개발 1일차 (React, MSA, UserService)",
+    "title": "개발 1일차 (Monolith, Clean Architecture, UserService)",
     "permalink": "/docs/dev-log/dev-day-1"
   }
 }
