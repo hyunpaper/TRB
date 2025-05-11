@@ -1,0 +1,55 @@
+{
+  "id": "dev-log/dev-day-3",
+  "title": "개발 3일차 (회원가입 메시지큐 처리 및 Consumer 구현)",
+  "description": "TRB 백엔드에서 RabbitMQ를 통한 비동기 회원가입 처리 구현 기록",
+  "source": "@site/docs/dev-log/dev-day-3.md",
+  "sourceDirName": "dev-log",
+  "slug": "/dev-log/dev-day-3",
+  "permalink": "/TRB/docs/dev-log/dev-day-3",
+  "draft": false,
+  "unlisted": false,
+  "tags": [
+    {
+      "inline": true,
+      "label": "rabbitmq",
+      "permalink": "/TRB/docs/tags/rabbitmq"
+    },
+    {
+      "inline": true,
+      "label": "messaging",
+      "permalink": "/TRB/docs/tags/messaging"
+    },
+    {
+      "inline": true,
+      "label": "async",
+      "permalink": "/TRB/docs/tags/async"
+    },
+    {
+      "inline": true,
+      "label": "user-consumer",
+      "permalink": "/TRB/docs/tags/user-consumer"
+    }
+  ],
+  "version": "current",
+  "frontMatter": {
+    "id": "dev-day-3",
+    "title": "개발 3일차 (회원가입 메시지큐 처리 및 Consumer 구현)",
+    "description": "TRB 백엔드에서 RabbitMQ를 통한 비동기 회원가입 처리 구현 기록",
+    "sidebar\\_position": 3,
+    "tags": [
+      "rabbitmq",
+      "messaging",
+      "async",
+      "user-consumer"
+    ]
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "개발 2일차 (JWT 인증, 사용자 역할, 전역 상태)",
+    "permalink": "/TRB/docs/dev-log/dev-day-2"
+  },
+  "next": {
+    "title": "로그인 API",
+    "permalink": "/TRB/docs/api-login"
+  }
+}

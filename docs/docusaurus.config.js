@@ -38,12 +38,6 @@ const config = {
       items: [
         {
           type: 'doc',
-          docId: 'intro',
-          position: 'left',
-          label: '소개',
-        },
-        {
-          type: 'doc',
           docId: 'architecture',
           position: 'left',
           label: '아키텍처',
@@ -53,6 +47,12 @@ const config = {
           docId: 'dev-log/dev-day-1',
           position: 'left',
           label: '개발 이력',
+        },
+        {
+          type: 'doc',
+          docId: 'api-login',   // ✅ 이건 api-login.md의 frontmatter id
+          label: 'API 문서',
+          position: 'left'
         },
         {
           href: 'https://github.com/hyunpaper/TRB',

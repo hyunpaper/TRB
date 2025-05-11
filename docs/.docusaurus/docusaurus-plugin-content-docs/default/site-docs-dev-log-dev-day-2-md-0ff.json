@@ -1,0 +1,54 @@
+{
+  "id": "dev-log/dev-day-2",
+  "title": "개발 2일차 (JWT 인증, 사용자 역할, 전역 상태)",
+  "description": "TRB 프로젝트의 인증 시스템 구축 및 역할 기반 렌더링 처리 기록",
+  "source": "@site/docs/dev-log/dev-day-2.md",
+  "sourceDirName": "dev-log",
+  "slug": "/dev-log/dev-day-2",
+  "permalink": "/TRB/docs/dev-log/dev-day-2",
+  "draft": false,
+  "unlisted": false,
+  "tags": [
+    {
+      "inline": true,
+      "label": "auth",
+      "permalink": "/TRB/docs/tags/auth"
+    },
+    {
+      "inline": true,
+      "label": "jwt",
+      "permalink": "/TRB/docs/tags/jwt"
+    },
+    {
+      "inline": true,
+      "label": "react-context",
+      "permalink": "/TRB/docs/tags/react-context"
+    },
+    {
+      "inline": true,
+      "label": "user-role",
+      "permalink": "/TRB/docs/tags/user-role"
+    }
+  ],
+  "version": "current",
+  "frontMatter": {
+    "id": "dev-day-2",
+    "title": "개발 2일차 (JWT 인증, 사용자 역할, 전역 상태)",
+    "description": "TRB 프로젝트의 인증 시스템 구축 및 역할 기반 렌더링 처리 기록",
+    "tags": [
+      "auth",
+      "jwt",
+      "react-context",
+      "user-role"
+    ]
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "개발 1일차 (Monolith, Clean Architecture, UserService)",
+    "permalink": "/TRB/docs/dev-log/dev-day-1"
+  },
+  "next": {
+    "title": "개발 3일차 (회원가입 메시지큐 처리 및 Consumer 구현)",
+    "permalink": "/TRB/docs/dev-log/dev-day-3"
+  }
+}

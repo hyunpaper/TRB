@@ -5,6 +5,8 @@ using TRB.Server.Infrastructure.Repositories;
 using TRB.Server.Infrastructure;
 using TRB.Server.Infrastructure.Interfaces;
 using TRB.Server.Infrastructure.Services;
+using TRB.Server.Domain.Options;
+using TRB.Server.Presentation.Consumers;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -26,11 +28,18 @@ DbConfig.Initialize(builder.Configuration);
 // DI µî·Ï
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IJwtTokenService, JwtTokenService>();
+builder.Services.AddScoped<UserSignupConsumer>();
 
+
+builder.Services.AddHttpClient();
 builder.Services.AddControllers();
 builder.Services.AddSwaggerGen();
 builder.Services.AddControllers();
-builder.Services.AddSingleton<IDbConnectionFactory, ConnectionFactory>();
+builder.Services.AddSingleton<IDbConnectionFactory, DbConnectionFactory>();
+builder.Services.Configure<RabbitMqOptions>(
+    builder.Configuration.GetSection("RabbitMQ"));
+builder.Services.AddScoped<IUserSignupPublisher, RabbitMqUserSignupPublisher>();
 
 var app = builder.Build();
 
@@ -38,6 +47,12 @@ if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
+    Task.Run(() =>
+    {
+        using var scope = app.Services.CreateScope();
+        var consumer = scope.ServiceProvider.GetRequiredService<UserSignupConsumer>();
+        consumer.Start();
+    });
 }
 
 app.UseHttpsRedirection();

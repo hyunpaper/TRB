@@ -10,11 +10,11 @@ using MySql.Data.MySqlClient;
 
 namespace TRB.Server.Infrastructure.Services
 {
-    public class ConnectionFactory : IDbConnectionFactory
+    public class DbConnectionFactory : IDbConnectionFactory
     {
         private readonly string _connectionString = string.Empty;
 
-        public ConnectionFactory(IConfiguration configuration)
+        public DbConnectionFactory(IConfiguration configuration)
         {
             _connectionString = configuration.GetConnectionString("DefaultConnection") ?? string.Empty;
         }

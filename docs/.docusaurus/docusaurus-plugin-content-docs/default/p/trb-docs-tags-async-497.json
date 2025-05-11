@@ -1,0 +1,1 @@
+{"tag":{"label":"async","permalink":"/TRB/docs/tags/async","allTagsPath":"/TRB/docs/tags","count":1,"items":[{"id":"dev-log/dev-day-3","title":"개발 3일차 (회원가입 메시지큐 처리 및 Consumer 구현)","description":"TRB 백엔드에서 RabbitMQ를 통한 비동기 회원가입 처리 구현 기록","permalink":"/TRB/docs/dev-log/dev-day-3"}],"unlisted":false}}

@@ -3,41 +3,6 @@ import ComponentCreator from '@docusaurus/ComponentCreator';
 
 export default [
   {
-    path: '/TRB/__docusaurus/debug',
-    component: ComponentCreator('/TRB/__docusaurus/debug', 'e68'),
-    exact: true
-  },
-  {
-    path: '/TRB/__docusaurus/debug/config',
-    component: ComponentCreator('/TRB/__docusaurus/debug/config', '9f6'),
-    exact: true
-  },
-  {
-    path: '/TRB/__docusaurus/debug/content',
-    component: ComponentCreator('/TRB/__docusaurus/debug/content', 'f1f'),
-    exact: true
-  },
-  {
-    path: '/TRB/__docusaurus/debug/globalData',
-    component: ComponentCreator('/TRB/__docusaurus/debug/globalData', 'eb4'),
-    exact: true
-  },
-  {
-    path: '/TRB/__docusaurus/debug/metadata',
-    component: ComponentCreator('/TRB/__docusaurus/debug/metadata', '8e6'),
-    exact: true
-  },
-  {
-    path: '/TRB/__docusaurus/debug/registry',
-    component: ComponentCreator('/TRB/__docusaurus/debug/registry', 'bc9'),
-    exact: true
-  },
-  {
-    path: '/TRB/__docusaurus/debug/routes',
-    component: ComponentCreator('/TRB/__docusaurus/debug/routes', 'c5f'),
-    exact: true
-  },
-  {
     path: '/TRB/blog',
     component: ComponentCreator('/TRB/blog', '19a'),
     exact: true
@@ -114,15 +79,20 @@ export default [
   },
   {
     path: '/TRB/docs',
-    component: ComponentCreator('/TRB/docs', '64b'),
+    component: ComponentCreator('/TRB/docs', 'ef8'),
     routes: [
       {
         path: '/TRB/docs',
-        component: ComponentCreator('/TRB/docs', '89d'),
+        component: ComponentCreator('/TRB/docs', '6d1'),
         routes: [
           {
             path: '/TRB/docs/tags',
             component: ComponentCreator('/TRB/docs/tags', '93a'),
+            exact: true
+          },
+          {
+            path: '/TRB/docs/tags/api',
+            component: ComponentCreator('/TRB/docs/tags/api', 'fc8'),
             exact: true
           },
           {
@@ -131,8 +101,33 @@ export default [
             exact: true
           },
           {
+            path: '/TRB/docs/tags/async',
+            component: ComponentCreator('/TRB/docs/tags/async', 'f3d'),
+            exact: true
+          },
+          {
+            path: '/TRB/docs/tags/auth',
+            component: ComponentCreator('/TRB/docs/tags/auth', '8de'),
+            exact: true
+          },
+          {
             path: '/TRB/docs/tags/clean-architecture',
             component: ComponentCreator('/TRB/docs/tags/clean-architecture', '57c'),
+            exact: true
+          },
+          {
+            path: '/TRB/docs/tags/jwt',
+            component: ComponentCreator('/TRB/docs/tags/jwt', '59f'),
+            exact: true
+          },
+          {
+            path: '/TRB/docs/tags/login',
+            component: ComponentCreator('/TRB/docs/tags/login', 'dd1'),
+            exact: true
+          },
+          {
+            path: '/TRB/docs/tags/messaging',
+            component: ComponentCreator('/TRB/docs/tags/messaging', '2d2'),
             exact: true
           },
           {
@@ -141,13 +136,38 @@ export default [
             exact: true
           },
           {
+            path: '/TRB/docs/tags/rabbitmq',
+            component: ComponentCreator('/TRB/docs/tags/rabbitmq', 'b1b'),
+            exact: true
+          },
+          {
             path: '/TRB/docs/tags/react',
             component: ComponentCreator('/TRB/docs/tags/react', 'b32'),
             exact: true
           },
           {
+            path: '/TRB/docs/tags/react-context',
+            component: ComponentCreator('/TRB/docs/tags/react-context', 'cbf'),
+            exact: true
+          },
+          {
             path: '/TRB/docs/tags/structure',
             component: ComponentCreator('/TRB/docs/tags/structure', '817'),
+            exact: true
+          },
+          {
+            path: '/TRB/docs/tags/user',
+            component: ComponentCreator('/TRB/docs/tags/user', 'd7c'),
+            exact: true
+          },
+          {
+            path: '/TRB/docs/tags/user-consumer',
+            component: ComponentCreator('/TRB/docs/tags/user-consumer', '0b2'),
+            exact: true
+          },
+          {
+            path: '/TRB/docs/tags/user-role',
+            component: ComponentCreator('/TRB/docs/tags/user-role', '4a0'),
             exact: true
           },
           {
@@ -157,8 +177,14 @@ export default [
           },
           {
             path: '/TRB/docs',
-            component: ComponentCreator('/TRB/docs', '57c'),
+            component: ComponentCreator('/TRB/docs', 'f1b'),
             routes: [
+              {
+                path: '/TRB/docs/api-login',
+                component: ComponentCreator('/TRB/docs/api-login', 'c72'),
+                exact: true,
+                sidebar: "tutorialSidebar"
+              },
               {
                 path: '/TRB/docs/architecture',
                 component: ComponentCreator('/TRB/docs/architecture', '8be'),
@@ -172,10 +198,21 @@ export default [
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/TRB/docs/intro',
-                component: ComponentCreator('/TRB/docs/intro', '4f3'),
+                path: '/TRB/docs/dev-log/dev-day-2',
+                component: ComponentCreator('/TRB/docs/dev-log/dev-day-2', 'b5e'),
                 exact: true,
                 sidebar: "tutorialSidebar"
+              },
+              {
+                path: '/TRB/docs/dev-log/dev-day-3',
+                component: ComponentCreator('/TRB/docs/dev-log/dev-day-3', 'e7d'),
+                exact: true,
+                sidebar: "tutorialSidebar"
+              },
+              {
+                path: '/TRB/docs/intro',
+                component: ComponentCreator('/TRB/docs/intro', 'c35'),
+                exact: true
               }
             ]
           }

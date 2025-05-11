@@ -8,8 +8,13 @@
           "label": "Next",
           "isLast": true,
           "path": "/TRB/docs",
-          "mainDocId": "intro",
+          "mainDocId": "architecture",
           "docs": [
+            {
+              "id": "api-login",
+              "path": "/TRB/docs/api-login",
+              "sidebar": "tutorialSidebar"
+            },
             {
               "id": "architecture",
               "path": "/TRB/docs/architecture",
@@ -21,17 +26,26 @@
               "sidebar": "tutorialSidebar"
             },
             {
-              "id": "intro",
-              "path": "/TRB/docs/intro",
+              "id": "dev-log/dev-day-2",
+              "path": "/TRB/docs/dev-log/dev-day-2",
               "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "dev-log/dev-day-3",
+              "path": "/TRB/docs/dev-log/dev-day-3",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "intro",
+              "path": "/TRB/docs/intro"
             }
           ],
           "draftIds": [],
           "sidebars": {
             "tutorialSidebar": {
               "link": {
-                "path": "/TRB/docs/intro",
-                "label": "intro"
+                "path": "/TRB/docs/architecture",
+                "label": "프로젝트 아키텍처"
               }
             }
           }

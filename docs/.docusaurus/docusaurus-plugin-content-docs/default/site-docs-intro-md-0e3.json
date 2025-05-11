@@ -13,10 +13,5 @@
   "sidebarPosition": 1,
   "frontMatter": {
     "sidebar_position": 1
-  },
-  "sidebar": "tutorialSidebar",
-  "next": {
-    "title": "개발 1일차 (Monolith, Clean Architecture, UserService)",
-    "permalink": "/TRB/docs/dev-log/dev-day-1"
   }
 }

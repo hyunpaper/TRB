@@ -10,7 +10,8 @@ namespace TRB.Server.Application.DTOs
         [Required(ErrorMessage = "비밀번호는 필수입니다.")]
 
         public string Password { get; set; } = string.Empty;
-        public int RoleId { get; set; }
+        public int RoleId { get; set; } = 1;
+        public string Role_name { get; set; } = "User";
     }
 
 }

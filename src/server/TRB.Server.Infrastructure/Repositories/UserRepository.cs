@@ -27,9 +27,11 @@ namespace TRB.Server.Infrastructure.Repositories
             await connection.OpenAsync();
 
             using var command = connection.CreateCommand();
-            command.CommandText = @"SELECT user_id, email, password, role_id, created_at, enabled
-                                    FROM user
-                                    WHERE email = @email
+            command.CommandText = @"SELECT ur.user_id, ur.email, ur.password, ur.role_id, ur.created_at, ur.enabled, ul.role_name
+                                    FROM user ur
+                                        ,userrole ul
+                                    WHERE ur.email = @email
+                                      AND ur.role_id = ul.role_id
                                     LIMIT 1";
 
             var emailParam = command.CreateParameter();
@@ -49,7 +51,8 @@ namespace TRB.Server.Infrastructure.Repositories
                 Password = reader["password"].ToString()!,
                 RoleId = Convert.ToInt32(reader["role_id"]),
                 CreatedAt = Convert.ToDateTime(reader["created_at"]),
-                Enabled = reader["enabled"].ToString()!
+                Enabled = reader["enabled"].ToString()!,
+                RoleName = reader["role_name"].ToString(),
             };
         }
 

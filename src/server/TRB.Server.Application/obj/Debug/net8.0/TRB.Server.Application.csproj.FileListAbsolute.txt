@@ -8,9 +8,9 @@ D:\TRB\src\server\TRB.Server.Application\obj\Debug\net8.0\TRB.Server.Application
 D:\TRB\src\server\TRB.Server.Application\obj\Debug\net8.0\TRB.Server.Application.AssemblyInfoInputs.cache
 D:\TRB\src\server\TRB.Server.Application\obj\Debug\net8.0\TRB.Server.Application.AssemblyInfo.cs
 D:\TRB\src\server\TRB.Server.Application\obj\Debug\net8.0\TRB.Server.Application.csproj.CoreCompileInputs.cache
+D:\TRB\src\server\TRB.Server.Application\obj\Debug\net8.0\TRB.Server.Application.sourcelink.json
 D:\TRB\src\server\TRB.Server.Application\obj\Debug\net8.0\TRB.Serv.00F510F4.Up2Date
 D:\TRB\src\server\TRB.Server.Application\obj\Debug\net8.0\TRB.Server.Application.dll
 D:\TRB\src\server\TRB.Server.Application\obj\Debug\net8.0\refint\TRB.Server.Application.dll
 D:\TRB\src\server\TRB.Server.Application\obj\Debug\net8.0\TRB.Server.Application.pdb
 D:\TRB\src\server\TRB.Server.Application\obj\Debug\net8.0\ref\TRB.Server.Application.dll
-D:\TRB\src\server\TRB.Server.Application\obj\Debug\net8.0\TRB.Server.Application.sourcelink.json

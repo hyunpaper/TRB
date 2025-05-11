@@ -1,0 +1,51 @@
+{
+  "id": "api-login",
+  "title": "로그인 API",
+  "description": "사용자 로그인 요청 및 JWT 반환 구조",
+  "source": "@site/docs/api-login.md",
+  "sourceDirName": ".",
+  "slug": "/api-login",
+  "permalink": "/TRB/docs/api-login",
+  "draft": false,
+  "unlisted": false,
+  "tags": [
+    {
+      "inline": true,
+      "label": "api",
+      "permalink": "/TRB/docs/tags/api"
+    },
+    {
+      "inline": true,
+      "label": "user",
+      "permalink": "/TRB/docs/tags/user"
+    },
+    {
+      "inline": true,
+      "label": "login",
+      "permalink": "/TRB/docs/tags/login"
+    },
+    {
+      "inline": true,
+      "label": "jwt",
+      "permalink": "/TRB/docs/tags/jwt"
+    }
+  ],
+  "version": "current",
+  "frontMatter": {
+    "id": "api-login",
+    "title": "로그인 API",
+    "description": "사용자 로그인 요청 및 JWT 반환 구조",
+    "sidebar\\_position": 1,
+    "tags": [
+      "api",
+      "user",
+      "login",
+      "jwt"
+    ]
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "개발 3일차 (회원가입 메시지큐 처리 및 Consumer 구현)",
+    "permalink": "/TRB/docs/dev-log/dev-day-3"
+  }
+}

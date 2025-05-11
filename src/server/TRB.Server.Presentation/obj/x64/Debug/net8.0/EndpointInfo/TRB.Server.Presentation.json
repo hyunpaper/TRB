@@ -5,6 +5,45 @@
     "version": "1.0"
   },
   "paths": {
+    "/api/Upbit/candles": {
+      "get": {
+        "tags": [
+          "Upbit"
+        ],
+        "parameters": [
+          {
+            "name": "market",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 30
+            }
+          },
+          {
+            "name": "interval",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 1
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/User": {
       "post": {
         "tags": [
@@ -125,6 +164,10 @@
           "roleId": {
             "type": "integer",
             "format": "int32"
+          },
+          "role_name": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false

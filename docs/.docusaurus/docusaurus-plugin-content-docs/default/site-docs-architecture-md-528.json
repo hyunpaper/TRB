@@ -43,7 +43,7 @@
     ]
   },
   "sidebar": "tutorialSidebar",
-  "previous": {
+  "next": {
     "title": "개발 1일차 (Monolith, Clean Architecture, UserService)",
     "permalink": "/TRB/docs/dev-log/dev-day-1"
   }

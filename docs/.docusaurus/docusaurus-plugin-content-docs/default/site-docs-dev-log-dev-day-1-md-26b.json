@@ -38,11 +38,11 @@
   },
   "sidebar": "tutorialSidebar",
   "previous": {
-    "title": "Tutorial Intro",
-    "permalink": "/TRB/docs/intro"
+    "title": "프로젝트 아키텍처",
+    "permalink": "/TRB/docs/architecture"
   },
   "next": {
-    "title": "프로젝트 구조 및 아키텍처",
-    "permalink": "/TRB/docs/architecture"
+    "title": "개발 2일차 (JWT 인증, 사용자 역할, 전역 상태)",
+    "permalink": "/TRB/docs/dev-log/dev-day-2"
   }
 }

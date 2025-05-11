@@ -1,5 +1,31 @@
 [
   {
+    "ContainingType": "TRB.Server.Presentation.Controllers.UpbitController",
+    "Method": "GetCandles",
+    "RelativePath": "api/Upbit/candles",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "market",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "count",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "interval",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "TRB.Server.Presentation.Controllers.UserController",
     "Method": "Create",
     "RelativePath": "api/User",

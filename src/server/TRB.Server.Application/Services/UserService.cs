@@ -29,7 +29,8 @@ namespace TRB.Server.Application.Services
             return new UserDto
             {
                 Email = user.Email,
-                RoleId = user.RoleId
+                RoleId = user.RoleId,
+                Role_name = user.RoleName
             };
         }
 
