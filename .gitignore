@@ -12,5 +12,6 @@ obj/
 *.log
 .vscode/
 .env
-
+.conf
+.config
 .vs/
