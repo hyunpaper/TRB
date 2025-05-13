@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "jyYgPK2ayiY=",
+  "dgSpecHash": "VnUk9LgMj30=",
   "success": true,
-  "projectFilePath": "D:\\TRB\\src\\server\\TRB.Server.Infrastructure\\TRB.Server.Infrastructure.csproj",
+  "projectFilePath": "D:\\0_TRB\\TRB\\src\\server\\TRB.Server.Infrastructure\\TRB.Server.Infrastructure.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\hyunpaper\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\hyunpaper\\.nuget\\packages\\bouncycastle.cryptography\\2.5.1\\bouncycastle.cryptography.2.5.1.nupkg.sha512",

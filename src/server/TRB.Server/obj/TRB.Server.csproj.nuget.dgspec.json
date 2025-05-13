@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\TRB\\src\\server\\TRB.Server\\TRB.Server.csproj": {}
+    "D:\\0_TRB\\TRB\\src\\server\\TRB.Server\\TRB.Server.csproj": {}
   },
   "projects": {
-    "D:\\TRB\\src\\server\\TRB.Server\\TRB.Server.csproj": {
+    "D:\\0_TRB\\TRB\\src\\server\\TRB.Server\\TRB.Server.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\TRB\\src\\server\\TRB.Server\\TRB.Server.csproj",
+        "projectUniqueName": "D:\\0_TRB\\TRB\\src\\server\\TRB.Server\\TRB.Server.csproj",
         "projectName": "TRB.Server",
-        "projectPath": "D:\\TRB\\src\\server\\TRB.Server\\TRB.Server.csproj",
+        "projectPath": "D:\\0_TRB\\TRB\\src\\server\\TRB.Server\\TRB.Server.csproj",
         "packagesPath": "C:\\Users\\hyunpaper\\.nuget\\packages\\",
-        "outputPath": "D:\\TRB\\src\\server\\TRB.Server\\obj\\",
+        "outputPath": "D:\\0_TRB\\TRB\\src\\server\\TRB.Server\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

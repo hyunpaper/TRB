@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TRB.Server")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+dabb7046fdbfbbaee3141057791fee980301f702")]
 [assembly: System.Reflection.AssemblyProductAttribute("TRB.Server")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TRB.Server")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

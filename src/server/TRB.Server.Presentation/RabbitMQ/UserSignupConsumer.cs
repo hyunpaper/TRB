@@ -53,7 +53,7 @@ namespace TRB.Server.Presentation.Consumers
                 arguments: new Dictionary<string, object>
                 {
                         { "x-dead-letter-exchange", "" },
-                        { "x-dead-letter-routing-key", "user.signup.q1" }, // 또는 q2/q3/라운드로빈으로 바꿔도 됨
+                        { "x-dead-letter-routing-key", "user.signup.q1" }, 
                         { "x-message-ttl", 10000 } // 10초 후 다시 본 큐로 이동
                 });
 
