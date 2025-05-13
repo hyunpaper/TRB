@@ -3151,11 +3151,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\0_TRB\\TRB\\src\\server\\TRB.Server.Presentation\\TRB.Server.Presentation.csproj",
+      "projectUniqueName": "D:\\TRB\\TRB\\src\\server\\TRB.Server.Presentation\\TRB.Server.Presentation.csproj",
       "projectName": "TRB.Server.Presentation",
-      "projectPath": "D:\\0_TRB\\TRB\\src\\server\\TRB.Server.Presentation\\TRB.Server.Presentation.csproj",
+      "projectPath": "D:\\TRB\\TRB\\src\\server\\TRB.Server.Presentation\\TRB.Server.Presentation.csproj",
       "packagesPath": "C:\\Users\\hyunpaper\\.nuget\\packages\\",
-      "outputPath": "D:\\0_TRB\\TRB\\src\\server\\TRB.Server.Presentation\\obj\\",
+      "outputPath": "D:\\TRB\\TRB\\src\\server\\TRB.Server.Presentation\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -3176,11 +3176,11 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "D:\\0_TRB\\TRB\\src\\server\\TRB.Server.Application\\TRB.Server.Application.csproj": {
-              "projectPath": "D:\\0_TRB\\TRB\\src\\server\\TRB.Server.Application\\TRB.Server.Application.csproj"
+            "D:\\TRB\\TRB\\src\\server\\TRB.Server.Application\\TRB.Server.Application.csproj": {
+              "projectPath": "D:\\TRB\\TRB\\src\\server\\TRB.Server.Application\\TRB.Server.Application.csproj"
             },
-            "D:\\0_TRB\\TRB\\src\\server\\TRB.Server.Infrastructure\\TRB.Server.Infrastructure.csproj": {
-              "projectPath": "D:\\0_TRB\\TRB\\src\\server\\TRB.Server.Infrastructure\\TRB.Server.Infrastructure.csproj"
+            "D:\\TRB\\TRB\\src\\server\\TRB.Server.Infrastructure\\TRB.Server.Infrastructure.csproj": {
+              "projectPath": "D:\\TRB\\TRB\\src\\server\\TRB.Server.Infrastructure\\TRB.Server.Infrastructure.csproj"
             }
           }
         }
