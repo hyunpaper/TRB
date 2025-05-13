@@ -45,7 +45,7 @@
   },
   "sidebar": "tutorialSidebar",
   "previous": {
-    "title": "개발 3일차 (회원가입 메시지큐 처리 및 Consumer 구현)",
-    "permalink": "/TRB/docs/dev-log/dev-day-3"
+    "title": "Day 4 - RabbitMQ 기반 회원가입 구조 및 DLQ 처리 전략",
+    "permalink": "/TRB/docs/dev-log/dev-day-4"
   }
 }

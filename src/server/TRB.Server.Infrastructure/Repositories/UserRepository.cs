@@ -58,7 +58,7 @@ namespace TRB.Server.Infrastructure.Repositories
 
         public async Task CreateAsync(User user)
         {
-            const string sql = @"INSERT INTO User (email, password, role_id, created_at, enabled)
+            const string sql = @"INSERT INTO user (email, password, role_id, created_at, enabled)
                                   VALUES (@Email, @Password, @RoleId, @CreatedAt, @Enabled);";
 
             using var conn = _connectionFactory.Conn();

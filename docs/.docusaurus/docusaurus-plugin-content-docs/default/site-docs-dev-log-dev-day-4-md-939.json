@@ -1,0 +1,27 @@
+{
+  "id": "dev-log/dev-day-4",
+  "title": "Day 4 - RabbitMQ 기반 회원가입 구조 및 DLQ 처리 전략",
+  "description": "✅ 목표",
+  "source": "@site/docs/dev-log/dev-day-4.md",
+  "sourceDirName": "dev-log",
+  "slug": "/dev-log/dev-day-4",
+  "permalink": "/TRB/docs/dev-log/dev-day-4",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 4,
+  "frontMatter": {
+    "title": "Day 4 - RabbitMQ 기반 회원가입 구조 및 DLQ 처리 전략",
+    "sidebar_position": 4
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "개발 3일차 (회원가입 메시지큐 처리 및 Consumer 구현)",
+    "permalink": "/TRB/docs/dev-log/dev-day-3"
+  },
+  "next": {
+    "title": "로그인 API",
+    "permalink": "/TRB/docs/api-login"
+  }
+}

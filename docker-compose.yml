@@ -1,0 +1,30 @@
+version: "3.8"
+
+services:
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    ports:
+      - "5672:5672"     # AMQP
+      - "15672:15672"   # Management UI
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+    restart: unless-stopped
+
+  trb_mysql:
+    image: mysql:8.0
+    container_name: TRB_MYSQL
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: root1234
+      MYSQL_DATABASE: trb
+      MYSQL_USER: trb_user
+      MYSQL_PASSWORD: trb_pw
+    ports:
+      - "3306:3306"
+    volumes:
+      - trb_mysql_data:/var/lib/mysql
+      - ./init:/docker-entrypoint-initdb.d  
+
+volumes:
+  rabbitmq_data:

@@ -3,6 +3,41 @@ import ComponentCreator from '@docusaurus/ComponentCreator';
 
 export default [
   {
+    path: '/TRB/__docusaurus/debug',
+    component: ComponentCreator('/TRB/__docusaurus/debug', 'e68'),
+    exact: true
+  },
+  {
+    path: '/TRB/__docusaurus/debug/config',
+    component: ComponentCreator('/TRB/__docusaurus/debug/config', '9f6'),
+    exact: true
+  },
+  {
+    path: '/TRB/__docusaurus/debug/content',
+    component: ComponentCreator('/TRB/__docusaurus/debug/content', 'f1f'),
+    exact: true
+  },
+  {
+    path: '/TRB/__docusaurus/debug/globalData',
+    component: ComponentCreator('/TRB/__docusaurus/debug/globalData', 'eb4'),
+    exact: true
+  },
+  {
+    path: '/TRB/__docusaurus/debug/metadata',
+    component: ComponentCreator('/TRB/__docusaurus/debug/metadata', '8e6'),
+    exact: true
+  },
+  {
+    path: '/TRB/__docusaurus/debug/registry',
+    component: ComponentCreator('/TRB/__docusaurus/debug/registry', 'bc9'),
+    exact: true
+  },
+  {
+    path: '/TRB/__docusaurus/debug/routes',
+    component: ComponentCreator('/TRB/__docusaurus/debug/routes', 'c5f'),
+    exact: true
+  },
+  {
     path: '/TRB/blog',
     component: ComponentCreator('/TRB/blog', '19a'),
     exact: true
@@ -79,11 +114,11 @@ export default [
   },
   {
     path: '/TRB/docs',
-    component: ComponentCreator('/TRB/docs', 'ef8'),
+    component: ComponentCreator('/TRB/docs', '3cf'),
     routes: [
       {
         path: '/TRB/docs',
-        component: ComponentCreator('/TRB/docs', '6d1'),
+        component: ComponentCreator('/TRB/docs', '71a'),
         routes: [
           {
             path: '/TRB/docs/tags',
@@ -177,7 +212,7 @@ export default [
           },
           {
             path: '/TRB/docs',
-            component: ComponentCreator('/TRB/docs', 'f1b'),
+            component: ComponentCreator('/TRB/docs', '1a5'),
             routes: [
               {
                 path: '/TRB/docs/api-login',
@@ -206,6 +241,12 @@ export default [
               {
                 path: '/TRB/docs/dev-log/dev-day-3',
                 component: ComponentCreator('/TRB/docs/dev-log/dev-day-3', 'e7d'),
+                exact: true,
+                sidebar: "tutorialSidebar"
+              },
+              {
+                path: '/TRB/docs/dev-log/dev-day-4',
+                component: ComponentCreator('/TRB/docs/dev-log/dev-day-4', '8c3'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },

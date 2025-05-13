@@ -12,6 +12,7 @@ module.exports = {
         'dev-log/dev-day-1',
         'dev-log/dev-day-2',
         'dev-log/dev-day-3',
+        'dev-log/dev-day-4',
       ]
     },
     {

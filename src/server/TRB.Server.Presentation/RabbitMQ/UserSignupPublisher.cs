@@ -1,28 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Text;
 using System.Text.Json;
-using System.Threading.Tasks;
-using Microsoft.Extensions.Configuration;
+using RabbitMQ.Client;
 using TRB.Server.Application.Interfaces;
 using TRB.Server.Domain.Messages;
-using RabbitMQ.Client;
+using Microsoft.Extensions.Configuration;
 
-namespace TRB.Server.Infrastructure.Services
+namespace TRB.Server.Presentation.Producers
 {
-    public class RabbitMqUserSignupPublisher : IUserSignupPublisher
+    public class UserSignupPublisher : IUserSignupPublisher
     {
         private readonly IConfiguration _config;
+        private static int _counter = 0;
+        private readonly string[] _queueNames = { "user.signup.q1", "user.signup.q2", "user.signup.q3" };
 
-        public RabbitMqUserSignupPublisher(IConfiguration config)
+        public UserSignupPublisher(IConfiguration config)
         {
             _config = config;
         }
 
         public Task PublishAsync(UserSignupMessage message)
         {
-            ConnectionFactory factory = new ConnectionFactory
+            var factory = new ConnectionFactory
             {
                 HostName = _config["RabbitMQ:HostName"] ?? "localhost",
                 Port = int.Parse(_config["RabbitMQ:Port"] ?? "5672"),
@@ -33,8 +31,19 @@ namespace TRB.Server.Infrastructure.Services
             using var connection = factory.CreateConnection();
             using var channel = connection.CreateModel();
 
-            var queueName = "trb.user.signup";
-            channel.QueueDeclare(queue: queueName, durable: true, exclusive: false, autoDelete: false);
+            var queueName = _queueNames[Interlocked.Increment(ref _counter) % _queueNames.Length];
+
+            channel.QueueDeclare(
+                queue: queueName,
+                durable: true,
+                exclusive: false,
+                autoDelete: false,
+                arguments: new Dictionary<string, object>
+                {
+                    { "x-dead-letter-exchange", "dlx.user.signup" }
+                });
+            var props = channel.CreateBasicProperties();
+            props.Persistent = true;
 
             var json = JsonSerializer.Serialize(message);
             var body = Encoding.UTF8.GetBytes(json);
@@ -42,12 +51,11 @@ namespace TRB.Server.Infrastructure.Services
             channel.BasicPublish(
                 exchange: "",
                 routingKey: queueName,
-                basicProperties: null,
+                basicProperties: props,
                 body: body
             );
 
             return Task.CompletedTask;
         }
     }
-
 }

@@ -49,7 +49,7 @@
     "permalink": "/TRB/docs/dev-log/dev-day-2"
   },
   "next": {
-    "title": "로그인 API",
-    "permalink": "/TRB/docs/api-login"
+    "title": "Day 4 - RabbitMQ 기반 회원가입 구조 및 DLQ 처리 전략",
+    "permalink": "/TRB/docs/dev-log/dev-day-4"
   }
 }
