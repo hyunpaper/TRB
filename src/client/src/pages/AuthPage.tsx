@@ -1,19 +1,18 @@
+// 📄 src/pages/AuthPage.tsx
+
 import { useState } from "react";
 import { useAuth } from "../context/AuthContext";
 
 interface AuthPageProps {
   mode?: "panel" | "page";
   onLoginSuccess?: () => void;
+  onShowRegister?: () => void;
 }
 
-export default function AuthPage({ mode = "page", onLoginSuccess }: AuthPageProps) {
-  const [isLoginMode, setIsLoginMode] = useState(true);
+export default function AuthPage({ mode = "page", onLoginSuccess, onShowRegister }: AuthPageProps) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
   const { login } = useAuth();
-
-  const toggleMode = () => setIsLoginMode(!isLoginMode);
 
   const isValidEmail = (email: string): boolean => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -26,11 +25,10 @@ export default function AuthPage({ mode = "page", onLoginSuccess }: AuthPageProp
       return;
     }
 
-    const endpoint = isLoginMode ? "login" : "";
     const payload = { email, password };
 
     try {
-      const response = await fetch(`http://localhost:5186/api/user/${endpoint}`, {
+      const response = await fetch("http://localhost:5186/api/user/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
@@ -42,17 +40,20 @@ export default function AuthPage({ mode = "page", onLoginSuccess }: AuthPageProp
         return;
       }
 
-if (isLoginMode) {
-  const result = await response.json();
-  const token = result.token;
-  const roleName = result.roleName; // ✅ 백엔드에서 온 roleName 받기
-  login(token, email, roleName);    // ✅ AuthContext에 저장
-  onLoginSuccess?.();
-  alert("로그인 성공!");
-} else {
-        alert("회원가입 성공!");
-        setIsLoginMode(true);
-      }
+      const result = await response.json();
+
+      const token = result.token;
+      const email = result.user.email;
+      const roleName = result.user.role_name;
+      const nickname = result.user.nickname;
+      const profileImage = result.user.profileImage;
+
+login(token, email, roleName, nickname, profileImage);
+      
+      login(token, email, roleName,nickname,profileImage);
+      onLoginSuccess?.();
+      alert("로그인 성공!");
+      console.log("로그인 응답:", result);
     } catch (err) {
       alert("요청 중 오류가 발생하였습니다.");
       console.error(err);
@@ -60,28 +61,11 @@ if (isLoginMode) {
   };
 
   return (
-    <div
-      className={
-        mode === "page"
-          ? "min-h-screen flex items-center justify-center bg-gray-50"
-          : ""
-      }
-    >
-      <section
-        className={
-          mode === "page"
-            ? "w-full max-w-md bg-white p-6 rounded-lg shadow-md"
-            : "w-full"
-        }
-      >
-        <h1 className="text-2xl font-semibold text-center mb-6">
-          {isLoginMode ? "로그인" : "회원가입"}
-        </h1>
+    <div className={mode === "page" ? "min-h-screen flex items-center justify-center bg-gray-50" : ""}>
+      <section className={mode === "page" ? "w-full max-w-md bg-white p-6 rounded-lg shadow-md" : "w-full"}>
+        <h1 className="text-2xl font-semibold text-center mb-6">로그인</h1>
 
-        <form
-          className="flex flex-col gap-4"
-          onSubmit={(e) => e.preventDefault()}
-        >
+        <form className="flex flex-col gap-4" onSubmit={(e) => e.preventDefault()}>
           <input
             type="email"
             placeholder="이메일"
@@ -100,23 +84,25 @@ if (isLoginMode) {
           <button
             type="submit"
             onClick={handleSubmit}
-            className={`w-full ${
-              isLoginMode
-                ? "bg-blue-500 hover:bg-blue-600"
-                : "bg-green-500 hover:bg-green-600"
-            } text-white py-2 rounded transition`}
+            className="w-full bg-blue-500 hover:bg-blue-600 text-white py-2 rounded transition"
           >
-            {isLoginMode ? "로그인" : "회원가입"}
+            로그인
           </button>
         </form>
 
         <p className="text-center mt-4 text-sm text-gray-600">
-          {isLoginMode ? "계정이 없으신가요?" : "이미 계정이 있으신가요?"} {" "}
+          계정이 없으신가요? {" "}
           <button
-            onClick={toggleMode}
+            onClick={() => {
+              if (mode === "panel") {
+                onShowRegister?.();
+              } else {
+                alert("회원가입은 별도 페이지 또는 팝업에서 처리됩니다.");
+              }
+            }}
             className="text-blue-600 hover:underline font-medium"
           >
-            {isLoginMode ? "회원가입" : "로그인"}
+            회원가입
           </button>
         </p>
       </section>

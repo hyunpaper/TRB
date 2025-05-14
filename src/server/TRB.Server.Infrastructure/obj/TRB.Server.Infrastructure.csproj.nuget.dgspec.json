@@ -229,6 +229,10 @@
               "target": "Package",
               "version": "[9.3.0, )"
             },
+            "NLog": {
+              "target": "Package",
+              "version": "[5.4.0, )"
+            },
             "RabbitMQ.Client": {
               "target": "Package",
               "version": "[6.4.0, )"

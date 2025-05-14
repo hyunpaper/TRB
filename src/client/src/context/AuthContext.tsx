@@ -5,8 +5,16 @@ interface AuthContextType {
   token: string | null;
   email: string | null;
   role: string | null;
+  nickname: string | null;
+  profileImage: string | null;
   isLoggedIn: boolean;
-  login: (token: string, email: string, role: string) => void;
+  login: (
+    token: string,
+    email: string,
+    role: string,
+    nickname: string,
+    profileImage: string | null
+  ) => void;
   logout: () => void;
 }
 
@@ -16,13 +24,23 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [token, setToken] = useState<string | null>(localStorage.getItem("token"));
   const [email, setEmail] = useState<string | null>(null);
   const [role, setRole] = useState<string | null>(null);
+  const [nickname, setNickname] = useState<string | null>(null);
+  const [profileImage, setProfileImage] = useState<string | null>(null);
 
-  const login = (newToken: string, email: string, role: string) => {
+  const login = (
+    newToken: string,
+    email: string,
+    role: string,
+    nickname: string,
+    profileImage: string | null
+  ) => {
     setToken(newToken);
     setEmail(email);
-    setRole(role); // ✅ 역할 저장
+    setNickname(nickname);
+    setProfileImage(profileImage);
     localStorage.setItem("token", newToken);
 
+    // JWT 내부 roleId 해석
     try {
       const payload = JSON.parse(atob(newToken.split('.')[1]));
       const roleId = payload["roleId"];
@@ -31,9 +49,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         "2": "관리자",
         "3": "게스트"
       };
-      setRole(roleMap[roleId] || "알 수 없음");
+      setRole(roleMap[roleId] || role);
     } catch {
-      setRole("알 수 없음");
+      setRole(role);
     }
   };
 
@@ -41,13 +59,26 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     setToken(null);
     setEmail(null);
     setRole(null);
+    setNickname(null);
+    setProfileImage(null);
     localStorage.removeItem("token");
   };
 
   const isLoggedIn = !!token;
 
   return (
-    <AuthContext.Provider value={{ token, email, role, isLoggedIn, login, logout }}>
+    <AuthContext.Provider
+      value={{
+        token,
+        email,
+        role,
+        nickname,
+        profileImage,
+        isLoggedIn,
+        login,
+        logout
+      }}
+    >
       {children}
     </AuthContext.Provider>
   );

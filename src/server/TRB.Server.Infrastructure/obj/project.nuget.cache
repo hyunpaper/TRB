@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "7Sw8chc0Qgk=",
+  "dgSpecHash": "GfCjNkKYYxI=",
   "success": true,
   "projectFilePath": "D:\\TRB\\TRB\\src\\server\\TRB.Server.Infrastructure\\TRB.Server.Infrastructure.csproj",
   "expectedPackageFiles": [
@@ -30,6 +30,7 @@
     "C:\\Users\\hyunpaper\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\hyunpaper\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
     "C:\\Users\\hyunpaper\\.nuget\\packages\\mysql.data\\9.3.0\\mysql.data.9.3.0.nupkg.sha512",
+    "C:\\Users\\hyunpaper\\.nuget\\packages\\nlog\\5.4.0\\nlog.5.4.0.nupkg.sha512",
     "C:\\Users\\hyunpaper\\.nuget\\packages\\rabbitmq.client\\6.4.0\\rabbitmq.client.6.4.0.nupkg.sha512",
     "C:\\Users\\hyunpaper\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",
     "C:\\Users\\hyunpaper\\.nuget\\packages\\system.configuration.configurationmanager\\8.0.0\\system.configuration.configurationmanager.8.0.0.nupkg.sha512",

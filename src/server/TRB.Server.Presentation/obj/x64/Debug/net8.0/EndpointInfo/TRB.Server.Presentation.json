@@ -51,19 +51,82 @@
         ],
         "requestBody": {
           "content": {
-            "application/json": {
+            "multipart/form-data": {
               "schema": {
-                "$ref": "#/components/schemas/UserDto"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/UserDto"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/UserDto"
+                "type": "object",
+                "properties": {
+                  "Email": {
+                    "type": "string"
+                  },
+                  "Password": {
+                    "type": "string"
+                  },
+                  "RoleId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Name": {
+                    "type": "string"
+                  },
+                  "Phone": {
+                    "type": "string"
+                  },
+                  "BirthDate": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "Gender": {
+                    "type": "string"
+                  },
+                  "Address": {
+                    "type": "string"
+                  },
+                  "Nickname": {
+                    "type": "string"
+                  },
+                  "ProfileImage": {
+                    "type": "string"
+                  },
+                  "profileImage": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              },
+              "encoding": {
+                "Email": {
+                  "style": "form"
+                },
+                "Password": {
+                  "style": "form"
+                },
+                "RoleId": {
+                  "style": "form"
+                },
+                "Name": {
+                  "style": "form"
+                },
+                "Phone": {
+                  "style": "form"
+                },
+                "BirthDate": {
+                  "style": "form"
+                },
+                "Gender": {
+                  "style": "form"
+                },
+                "Address": {
+                  "style": "form"
+                },
+                "Nickname": {
+                  "style": "form"
+                },
+                "ProfileImage": {
+                  "style": "form"
+                },
+                "profileImage": {
+                  "style": "form"
+                }
               }
             }
           }
@@ -139,33 +202,6 @@
             "nullable": true
           },
           "password": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "UserDto": {
-        "required": [
-          "email",
-          "password"
-        ],
-        "type": "object",
-        "properties": {
-          "email": {
-            "minLength": 1,
-            "type": "string",
-            "format": "email"
-          },
-          "password": {
-            "minLength": 1,
-            "type": "string"
-          },
-          "roleId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "role_name": {
             "type": "string",
             "nullable": true
           }

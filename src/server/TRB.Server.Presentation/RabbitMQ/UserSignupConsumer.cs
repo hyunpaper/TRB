@@ -20,7 +20,6 @@ namespace TRB.Server.Presentation.Consumers
         private int _roundRobinCounter = 0;
         private readonly string[] _queueNames = { "user.signup.q1", "user.signup.q2", "user.signup.q3" };
         private readonly string _dlqLogPath = "MessageDLQ.log";
-        private readonly string[] _retryTargets = { "user.signup.q1", "user.signup.q2", "user.signup.q3" };
 
         public UserSignupConsumer(IUserRepository userRepository, ILogger<UserSignupConsumer> logger, IConfiguration config, IRabbitMQFactory rabbitMQFactory)
         {
@@ -43,20 +42,19 @@ namespace TRB.Server.Presentation.Consumers
                 dlxChannel.QueueBind("user.signup.dlq", "dlx.user.signup", q);
             }
 
-                     // DLQ Consumer를 BasicConsume 방식으로 구현
+            // DLQ Consumer
             Task.Run(() =>
             {
                 using var connection = factory.CreateConnection();
                 using var channel = connection.CreateModel();
 
                 channel.QueueDeclare("user.signup.retry", durable: true, exclusive: false, autoDelete: false,
-                arguments: new Dictionary<string, object>
-                {
-                        { "x-dead-letter-exchange", "" },
-                        { "x-dead-letter-routing-key", "user.signup.q1" }, 
-                        { "x-message-ttl", 10000 } // 10초 후 다시 본 큐로 이동
-                });
-
+                    arguments: new Dictionary<string, object>
+                    {
+                { "x-dead-letter-exchange", "" },
+                { "x-dead-letter-routing-key", "user.signup.q1" },
+                { "x-message-ttl", 10000 }
+                    });
 
                 channel.QueueDeclare("user.signup.dlq", durable: true, exclusive: false, autoDelete: false);
                 channel.BasicQos(0, 1, false);
@@ -69,37 +67,43 @@ namespace TRB.Server.Presentation.Consumers
                         var body = ea.Body.ToArray();
                         var json = Encoding.UTF8.GetString(body);
 
-                        var headers = ea.BasicProperties?.Headers;
-                        var deathCount = 0;
-
-                        if (headers != null && headers.ContainsKey("x-death"))
+                        int deathCount = 0;
+                        if (ea.BasicProperties?.Headers != null &&
+                            ea.BasicProperties.Headers.TryGetValue("x-death", out var deathHeader) &&
+                            deathHeader is List<object> xDeathList &&
+                            xDeathList.FirstOrDefault() is Dictionary<string, object> xDeath &&
+                            xDeath.TryGetValue("count", out var countObj))
                         {
-                            var xDeath = headers["x-death"] as List<object>;
-                            if (xDeath?.FirstOrDefault() is Dictionary<string, object> deathInfo &&
-                                deathInfo.ContainsKey("count"))
-                            {
-                                deathCount = Convert.ToInt32(deathInfo["count"]);
-                            }
+                            deathCount = Convert.ToInt32(countObj);
                         }
 
-                        if (deathCount >= 2)
+                        if (deathCount >= 3)
                         {
-                            var log = $"[{DateTime.Now:yyyy-MM-dd HH:mm:ss}] DLQ 재시도 초과 메시지 삭제됨\n{json}\n";
-                            File.AppendAllText(_dlqLogPath, log);
-                            _logger.LogWarning(" 재시도 초과 → 삭제됨. 메시지 내용은 로그에 기록됨.");
-                            channel.BasicAck(ea.DeliveryTag, false);
+                            try
+                            {
+                                File.AppendAllText(_dlqLogPath, $"[{DateTime.Now:yyyy-MM-dd HH:mm:ss}] DLQ 재시도 초과 메시지 삭제됨\n{json}\n");
+                                _logger.LogWarning("🚫 DLQ 3회 초과 → 삭제됨");
+                            }
+                            catch (Exception logEx)
+                            {
+                                _logger.LogError(logEx, "DLQ 로그 쓰기 실패");
+                            }
+
+                            try
+                            {
+                                channel.BasicAck(ea.DeliveryTag, false);
+                                _logger.LogInformation("✅ DLQ Ack 완료 → 메시지 삭제됨");
+                            }
+                            catch (Exception ackEx)
+                            {
+                                _logger.LogError(ackEx, "DLQ Ack 실패");
+                            }
+
                             return;
                         }
 
-
-                        channel.BasicPublish(
-                            exchange: "",
-                            routingKey: "user.signup.retry",
-                            basicProperties: ea.BasicProperties,
-                            body: body
-                        );
-
-                        _logger.LogInformation("⏳ 메시지를 DelayQueue로 재전송함");
+                        channel.BasicPublish("", "user.signup.retry", ea.BasicProperties, body);
+                        _logger.LogInformation("🔁 DLQ → retry 전송 완료");
                         channel.BasicAck(ea.DeliveryTag, false);
                     }
                     catch (Exception ex)
@@ -108,29 +112,29 @@ namespace TRB.Server.Presentation.Consumers
                     }
                 };
 
-                channel.BasicConsume(queue: "user.signup.dlq", autoAck: false, consumer: consumer);
-                _logger.LogInformation(" DLQ Consumer 시작됨");
+                channel.BasicConsume("user.signup.dlq", autoAck: false, consumer: consumer);
+                _logger.LogInformation("🐰 DLQ Consumer 시작됨");
 
                 while (true) Thread.Sleep(Timeout.Infinite);
             });
 
+            // 본 큐 Consumer
             foreach (var queueName in _queueNames)
             {
                 var currentQueue = queueName;
-
                 Task.Run(() =>
                 {
                     using var connection = factory.CreateConnection();
                     using var channel = connection.CreateModel();
 
                     channel.QueueDeclare(
-                        queue: queueName,
+                        queue: currentQueue,
                         durable: true,
                         exclusive: false,
                         autoDelete: false,
                         arguments: new Dictionary<string, object>
                         {
-                            { "x-dead-letter-exchange", "dlx.user.signup" }
+                    { "x-dead-letter-exchange", "dlx.user.signup" }
                         });
 
                     channel.BasicQos(0, 1, false);
@@ -147,35 +151,62 @@ namespace TRB.Server.Presentation.Consumers
 
                             if (message is not null)
                             {
-
-                                await _userRepository.CreateAsync(new User
+                                var user = new User
                                 {
                                     Email = message.Email,
                                     Password = message.Password,
                                     RoleId = message.RoleId,
                                     CreatedAt = DateTime.UtcNow,
                                     Enabled = "Y"
-                                });
+                                };
 
-                                _logger.LogInformation(" 가입 처리 완료: {Email} (from {Queue})", message.Email, currentQueue);
+                                var profile = new UserProfile
+                                {
+                                    Name = message.Name,
+                                    Phone = message.Phone,
+                                    BirthDate = message.BirthDate,
+                                    Gender = message.Gender,
+                                    Address = message.Address,
+                                    Nickname = message.Nickname,
+                                    ProfileImage = message.ProfileImage
+                                };
+
+                                var result = await _userRepository.InsertUserAndProfileAsync(user, profile);
+
+                                if (!result)
+                                {
+                                    _logger.LogWarning("🚨 가입 트랜잭션 실패, DLQ로 이동 예정: {Email}", message.Email);
+                                    throw new Exception("회원가입 실패");
+                                }
+
+                                _logger.LogInformation("✅ 가입 처리 완료: {Email}", message.Email);
                             }
 
-                            channel.BasicAck(ea.DeliveryTag, multiple: false);
+                            channel.BasicAck(ea.DeliveryTag, false);
                         }
                         catch (Exception ex)
                         {
-                            _logger.LogError(ex, " {Queue} 처리 중 오류", currentQueue);
+                            _logger.LogError(ex, "❌ {Queue} 처리 중 오류", currentQueue);
+                            try
+                            {
+                                // DLX로 이동 유도
+                                channel.BasicNack(ea.DeliveryTag, multiple: false, requeue: false);
+                            }
+                            catch (Exception nackEx)
+                            {
+                                _logger.LogError(nackEx, "❌ Nack 중 오류 발생");
+                            }
                         }
                     };
 
                     channel.BasicConsume(queue: currentQueue, autoAck: false, consumer: consumer);
-                    _logger.LogInformation(" {Queue} Consumer 시작됨", currentQueue);
+                    _logger.LogInformation("🐇 {Queue} Consumer 시작됨", currentQueue);
 
                     while (true) Thread.Sleep(Timeout.Infinite);
                 });
             }
 
-            _logger.LogInformation(" 모든 가입 Consumer 스케줄러가 시작되었습니다.");
+            _logger.LogInformation("🚀 모든 가입 Consumer 스케줄러 시작 완료");
         }
     }
 }

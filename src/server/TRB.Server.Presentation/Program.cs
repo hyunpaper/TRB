@@ -8,6 +8,8 @@ using TRB.Server.Infrastructure.Services;
 using TRB.Server.Domain.Options;
 using TRB.Server.Presentation.Consumers;
 using TRB.Server.Presentation.Producers;
+using Microsoft.Extensions.FileProviders;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -43,6 +45,7 @@ builder.Services.Configure<RabbitMqOptions>(
     builder.Configuration.GetSection("RabbitMQ"));
 builder.Services.AddScoped<IUserSignupPublisher, UserSignupPublisher>();
 builder.Services.AddScoped<UserSignupConsumer>();
+builder.Services.AddScoped<IMessagePublisher, RabbitMqPublisher>();
 
 var app = builder.Build();
 
@@ -58,6 +61,15 @@ if (app.Environment.IsDevelopment())
     });
 
 }
+
+app.UseStaticFiles();
+
+app.UseStaticFiles(new StaticFileOptions
+{
+    FileProvider = new PhysicalFileProvider(
+        Path.Combine(Directory.GetCurrentDirectory(), "wwwroot")),
+    RequestPath = ""
+});
 
 app.UseHttpsRedirection();
 app.UseCors();

@@ -23,7 +23,7 @@ namespace TRB.Server.Application.Services
 
         public async Task<UserDto?> GetByEmailAsync(string email)
         {
-            var user = await _userRepository.GetByEmailAsync(email);
+            var user = await _userRepository.FindByEmailAsync(email);
             if (user == null) return null;
 
             return new UserDto
@@ -34,28 +34,60 @@ namespace TRB.Server.Application.Services
             };
         }
 
-        public async Task CreateAsync(UserDto dto)
+        public async Task<bool> SignupAsync(UserSignupDto dto)
         {
             var user = new User
             {
                 Email = dto.Email,
-                Password = BCrypt.Net.BCrypt.HashPassword(dto.Password),
+                Password = dto.Password,
                 RoleId = dto.RoleId,
                 CreatedAt = DateTime.UtcNow,
                 Enabled = "Y"
             };
 
-            await _userRepository.CreateAsync(user);
+            var profile = new UserProfile
+            {
+                Name = dto.Name,
+                Phone = dto.Phone,
+                BirthDate = dto.BirthDate,
+                Gender = dto.Gender,
+                Address = dto.Address,
+                Nickname = dto.Nickname,
+                ProfileImage = dto.ProfileImage
+            };
+
+            return await _userRepository.InsertUserAndProfileAsync(user, profile);
         }
+
+
+
+
 
         public async Task<bool> LoginAsync(LoginDto dto)
         {
-            var user = await _userRepository.GetByEmailAsync(dto.Email);
+            var user = await _userRepository.FindByEmailAsync(dto.Email);
             if (user == null) return false;
 
             return BCrypt.Net.BCrypt.Verify(dto.Password, user.Password);
         }
 
+        public async Task<UserLoginResponseDto?> GetLoginInfoByEmailAsync(string email)
+        {
+            var result = await _userRepository.GetWithProfileByEmailAsync(email);
+            if (result == null) return null;
+
+            var (user, profile, roleName) = result.Value;
+
+            return new UserLoginResponseDto
+            {
+                UserId = user.UserId,
+                Email = user.Email,
+                RoleId = user.RoleId,
+                Role_name = roleName,
+                Nickname = profile?.Nickname,
+                ProfileImage = profile?.ProfileImage
+            };
+        }
 
     }
 }

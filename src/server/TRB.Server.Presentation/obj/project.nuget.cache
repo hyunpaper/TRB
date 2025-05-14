@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "5NsfFlejMhU=",
+  "dgSpecHash": "UDbq7Kkvesk=",
   "success": true,
   "projectFilePath": "D:\\TRB\\TRB\\src\\server\\TRB.Server.Presentation\\TRB.Server.Presentation.csproj",
   "expectedPackageFiles": [
@@ -32,6 +32,7 @@
     "C:\\Users\\hyunpaper\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
     "C:\\Users\\hyunpaper\\.nuget\\packages\\microsoft.openapi\\1.6.14\\microsoft.openapi.1.6.14.nupkg.sha512",
     "C:\\Users\\hyunpaper\\.nuget\\packages\\mysql.data\\9.3.0\\mysql.data.9.3.0.nupkg.sha512",
+    "C:\\Users\\hyunpaper\\.nuget\\packages\\nlog\\5.4.0\\nlog.5.4.0.nupkg.sha512",
     "C:\\Users\\hyunpaper\\.nuget\\packages\\rabbitmq.client\\6.4.0\\rabbitmq.client.6.4.0.nupkg.sha512",
     "C:\\Users\\hyunpaper\\.nuget\\packages\\swashbuckle.aspnetcore\\6.6.2\\swashbuckle.aspnetcore.6.6.2.nupkg.sha512",
     "C:\\Users\\hyunpaper\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.6.2\\swashbuckle.aspnetcore.swagger.6.6.2.nupkg.sha512",
