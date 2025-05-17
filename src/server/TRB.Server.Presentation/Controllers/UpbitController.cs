@@ -24,7 +24,7 @@ namespace TRB.Server.Presentation.Controllers
         {
             try
             {
-                var url = $"https://api.upbit.com/v1/candles/minutes/{interval}?market={market}&count={count}"; // ✅ 적용
+                var url = $"https://api.upbit.com/v1/candles/minutes/{interval}?market={market}&count={count}"; 
                 var request = new HttpRequestMessage(HttpMethod.Get, url);
                 request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 

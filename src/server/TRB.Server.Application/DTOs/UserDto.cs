@@ -12,6 +12,7 @@ namespace TRB.Server.Application.DTOs
         public string Password { get; set; } = string.Empty;
         public int RoleId { get; set; } = 1;
         public string Role_name { get; set; } = "User";
+        public int UserId { get; set; }
     }
 
 }

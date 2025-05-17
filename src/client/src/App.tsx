@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import DashboardPage from "./pages/dashboard";
-import { AuthProvider } from "./context/AuthContext";
+import DashboardPage from "./adapters.presentation/pages/dashboard";
+import { AuthProvider } from "./adapters.presentation/hooks/AuthContext";
 
 function App() {
   return (

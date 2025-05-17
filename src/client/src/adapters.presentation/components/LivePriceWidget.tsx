@@ -1,7 +1,7 @@
 // src/components/LivePriceWidget.tsx
 import { useEffect, useRef, useState } from "react";
-import { priceSocketService } from "../services/PriceSocketService";
-import type { TickerData } from "../services/PriceSocketService";
+import { priceSocketService } from "../../adapters.infrastructure/sockets/PriceSocketService";
+import type { TickerData } from "../../adapters.infrastructure/sockets/PriceSocketService";
 import {
   LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer,
 } from "recharts";

@@ -8,6 +8,7 @@ namespace TRB.Server.Application.DTOs
 {
     public class UserSignupDto
     {
+        public int UserId { get; set; }
         // users 테이블 관련
         public string Email { get; set; } = string.Empty;
         public string Password { get; set; } = string.Empty;

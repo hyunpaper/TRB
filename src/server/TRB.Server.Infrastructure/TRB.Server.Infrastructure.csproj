@@ -9,6 +9,7 @@
   <ItemGroup>
     <ProjectReference Include="..\TRB.Server.Application\TRB.Server.Application.csproj" />
     <ProjectReference Include="..\TRB.Server.Domain\TRB.Server.Domain.csproj" />
+    <ProjectReference Include="..\TRB.Server\TRB.Server.Presistance\TRB.Server.Presistance.csproj" />
   </ItemGroup>
 
   <ItemGroup>
@@ -17,8 +18,10 @@
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="9.0.4" />
     <PackageReference Include="Microsoft.Extensions.Options" Version="9.0.4" />
     <PackageReference Include="MySql.Data" Version="9.3.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="NLog" Version="5.4.0" />
     <PackageReference Include="RabbitMQ.Client" Version="6.4.0" />
+    <PackageReference Include="StackExchange.Redis" Version="2.8.37" />
   </ItemGroup>
 
 </Project>

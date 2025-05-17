@@ -1,7 +1,7 @@
 // 📄 src/pages/AuthPage.tsx
 
 import { useState } from "react";
-import { useAuth } from "../context/AuthContext";
+import { useAuth } from "../hooks/AuthContext";
 
 interface AuthPageProps {
   mode?: "panel" | "page";
@@ -41,16 +41,18 @@ export default function AuthPage({ mode = "page", onLoginSuccess, onShowRegister
       }
 
       const result = await response.json();
+      const accessToken = result.accessToken;
+      const refreshToken = result.refreshToken;
+      const email = result.email;
+      const roleName = result.role_name;
+      const nickname = result.nickname;
+      const profileImage = result.profileImage;
+      const roleId = result.roleId;
+      const userId = result.userId;
 
-      const token = result.token;
-      const email = result.user.email;
-      const roleName = result.user.role_name;
-      const nickname = result.user.nickname;
-      const profileImage = result.user.profileImage;
+      login(accessToken, refreshToken, email, roleName, nickname, profileImage, roleId, userId);
 
-login(token, email, roleName, nickname, profileImage);
       
-      login(token, email, roleName,nickname,profileImage);
       onLoginSuccess?.();
       alert("로그인 성공!");
       console.log("로그인 응답:", result);

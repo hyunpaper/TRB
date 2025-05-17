@@ -1,5 +1,21 @@
 [
   {
+    "ContainingType": "TRB.Server.Presentation.Controllers.AuthController",
+    "Method": "RefreshToken",
+    "RelativePath": "api/auth/refresh",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "TRB.Server.Application.DTOs.TokenRefreshRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "TRB.Server.Presentation.Controllers.UpbitController",
     "Method": "GetCandles",
     "RelativePath": "api/Upbit/candles",
@@ -33,6 +49,11 @@
     "IsController": true,
     "Order": 0,
     "Parameters": [
+      {
+        "Name": "UserId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
       {
         "Name": "Email",
         "Type": "System.String",
@@ -118,6 +139,22 @@
       {
         "Name": "dto",
         "Type": "TRB.Server.Application.DTOs.LoginDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TRB.Server.Presentation.Controllers.UserController",
+    "Method": "UpdateProfile",
+    "RelativePath": "api/User/profile",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "TRB.Server.Application.api.requestbodies.UserProfileUpdateRequestDto",
         "IsRequired": true
       }
     ],

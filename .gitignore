@@ -7,6 +7,10 @@ bin/
 obj/
 *.user
 *.suo
+*.jpg
+*.cache
+*.json
+*.pdb
 
 # Build
 *.log
@@ -15,3 +19,5 @@ obj/
 .conf
 .config
 .vs/
+*.cache
+*.json

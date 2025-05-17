@@ -14,5 +14,9 @@ namespace TRB.Server.Application.DTOs
         public string Role_name { get; set; } = string.Empty;
         public string? Nickname { get; set; }
         public string? ProfileImage { get; set; }
+
+        //토큰 응답
+        public string AccessToken { get; set; } = string.Empty;
+        public string RefreshToken { get; set; } = string.Empty;
     }
 }

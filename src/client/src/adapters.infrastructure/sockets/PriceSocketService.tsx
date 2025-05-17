@@ -5,8 +5,8 @@ export interface TickerData {
   trade_price: number;
   signed_change_rate: number;
   market: string; 
-  high_price: number; // ✅ 추가
-  low_price: number;  // ✅ 추가
+  high_price: number; 
+  low_price: number; 
 
 }
 

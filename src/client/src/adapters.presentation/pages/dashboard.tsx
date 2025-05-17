@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import { getMinuteCandles } from "../api/upbit";
+import { getMinuteCandles } from "../../adapters.persistence/apis/upbit";
 import CoinChart from "../components/CoinChart";
 import AuthPage from "../pages/AuthPage";
-import RegisterPopup from "../pages/RegisterPopup";
-import { priceSocketService } from "../services/PriceSocketService";
-import { useAuth } from "../context/AuthContext";
+import RegisterPopup from "./RegisterPopup";
+import { priceSocketService } from "../../adapters.infrastructure/sockets/PriceSocketService";
+import { useAuth } from "../hooks/AuthContext";
 
 const markets = [
   "KRW-BTC", "KRW-ETH", "KRW-XRP", "KRW-DOGE", "KRW-SOL",

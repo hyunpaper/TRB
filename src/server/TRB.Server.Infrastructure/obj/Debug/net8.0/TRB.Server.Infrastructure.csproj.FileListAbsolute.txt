@@ -34,3 +34,5 @@ D:\TRB\TRB\src\server\TRB.Server.Infrastructure\obj\Debug\net8.0\TRB.Server.Infr
 D:\TRB\TRB\src\server\TRB.Server.Infrastructure\obj\Debug\net8.0\refint\TRB.Server.Infrastructure.dll
 D:\TRB\TRB\src\server\TRB.Server.Infrastructure\obj\Debug\net8.0\TRB.Server.Infrastructure.pdb
 D:\TRB\TRB\src\server\TRB.Server.Infrastructure\obj\Debug\net8.0\ref\TRB.Server.Infrastructure.dll
+D:\TRB\TRB\src\server\TRB.Server.Infrastructure\bin\Debug\net8.0\TRB.Server.Presistance.dll
+D:\TRB\TRB\src\server\TRB.Server.Infrastructure\bin\Debug\net8.0\TRB.Server.Presistance.pdb

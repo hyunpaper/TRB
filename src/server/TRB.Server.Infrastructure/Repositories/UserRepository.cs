@@ -9,6 +9,8 @@ using TRB.Server.Domain.Interfaces;
 using TRB.Server.Infrastructure.Interfaces;
 using NLog;
 using TRB.Server.Application.DTOs;
+using TRB.Server.Application.api.requestbodies;
+using TRB.Server.Domain.valueobjects;
 
 namespace TRB.Server.Infrastructure.Repositories
 {
@@ -186,6 +188,64 @@ namespace TRB.Server.Infrastructure.Repositories
                 return false;
             }
         }
+        public async Task<bool> UpdateUserProfileAsync(int userId, UserProfileValue value)
+        {
+            using var conn = _connectionFactory.Conn();
+            await conn.OpenAsync();
 
+            using var command = conn.CreateCommand();
+            var updates = new List<string>();
+
+            // 파라미터 추가 도우미
+            void AddParam(string name, object? value)
+            {
+                command.Parameters.AddWithValue(name, value ?? DBNull.Value);
+            }
+
+            if (value.BirthDate != null)
+            {
+                updates.Add("birth_date = @BirthDate");
+                AddParam("@BirthDate", value.BirthDate);
+            }
+
+            if (!string.IsNullOrEmpty(value.Gender))
+            {
+                updates.Add("gender = @Gender");
+                AddParam("@Gender", value.Gender);
+            }
+
+            if (!string.IsNullOrEmpty(value.Address))
+            {
+                updates.Add("address = @Address");
+                AddParam("@Address", value.Address);
+            }
+
+            if (!string.IsNullOrEmpty(value.Nickname))
+            {
+                updates.Add("nickname = @Nickname");
+                AddParam("@Nickname", value.Nickname);
+            }
+
+            if (!string.IsNullOrEmpty(value.ProfileImage))
+            {
+                updates.Add("profile_image = @ProfileImage");
+                AddParam("@ProfileImage", value.ProfileImage);
+            }
+
+            if (!updates.Any())
+                return false;
+
+            updates.Add("updated_at = NOW()");
+
+            command.CommandText = $@"
+                                    UPDATE user_profiles
+                                    SET {string.Join(", ", updates)}
+                                    WHERE user_id = @UserId";
+
+            AddParam("@UserId", userId);
+
+            var affected = await command.ExecuteNonQueryAsync();
+            return affected > 0;
+        }
     }
 }

@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Scrutor" Version="6.0.1" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.9.0" />
   </ItemGroup>
@@ -15,6 +16,11 @@
   <ItemGroup>
     <ProjectReference Include="..\TRB.Server.Application\TRB.Server.Application.csproj" />
     <ProjectReference Include="..\TRB.Server.Infrastructure\TRB.Server.Infrastructure.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Repositories\Commands\" />
+    <Folder Include="Repositories\Queries\" />
   </ItemGroup>
 
 </Project>

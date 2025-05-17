@@ -28,6 +28,7 @@ namespace TRB.Server.Application.Services
 
             return new UserDto
             {
+                UserId = user.UserId,
                 Email = user.Email,
                 RoleId = user.RoleId,
                 Role_name = user.RoleName
@@ -42,7 +43,8 @@ namespace TRB.Server.Application.Services
                 Password = dto.Password,
                 RoleId = dto.RoleId,
                 CreatedAt = DateTime.UtcNow,
-                Enabled = "Y"
+                Enabled = "Y",
+                UserId = dto.UserId,
             };
 
             var profile = new UserProfile

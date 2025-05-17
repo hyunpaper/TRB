@@ -7,8 +7,10 @@ using TRB.Server.Infrastructure.Interfaces;
 using TRB.Server.Infrastructure.Services;
 using TRB.Server.Domain.Options;
 using TRB.Server.Presentation.Consumers;
-using TRB.Server.Presentation.Producers;
 using Microsoft.Extensions.FileProviders;
+using TRB.Server.Infrastructure.Messaging;
+using TRB.Server.Presistance.Repositories.Commands;
+using Scrutor;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -29,23 +31,35 @@ DbConfig.Initialize(builder.Configuration);
 
 
 // DI 등록
-builder.Services.AddScoped<IUserService, UserService>();
-builder.Services.AddScoped<IUserRepository, UserRepository>();
-builder.Services.AddScoped<IJwtTokenService, JwtTokenService>();
-builder.Services.AddScoped<UserSignupConsumer>();
-builder.Services.AddSingleton<IRabbitMQFactory, RabbitMQFactory>();
-
-
-builder.Services.AddHttpClient();
 builder.Services.AddControllers();
+builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddControllers();
+builder.Services.AddHttpClient();
+builder.Services.Scan(scan => scan
+    .FromAssemblies(
+        typeof(UserService).Assembly,
+        typeof(UserRepository).Assembly,
+        typeof(UpdateUserProfileCommandHandler).Assembly
+    )
+    .AddClasses(classes => classes.Where(type => type.Name.EndsWith("Service")))
+        .AsImplementedInterfaces()
+        .WithScopedLifetime()
+    .AddClasses(classes => classes.Where(type => type.Name.EndsWith("Repository")))
+        .AsImplementedInterfaces()
+        .WithScopedLifetime()
+    .AddClasses(classes => classes.Where(type => type.Name.EndsWith("Handler")))
+        .AsSelf()
+        .WithScopedLifetime()
+);
+builder.Services.AddSwaggerGen();
+builder.Services.AddSingleton<IRabbitMQFactory, RabbitMQFactory>();
 builder.Services.AddSingleton<IDbConnectionFactory, DbConnectionFactory>();
-builder.Services.Configure<RabbitMqOptions>(
-    builder.Configuration.GetSection("RabbitMQ"));
-builder.Services.AddScoped<IUserSignupPublisher, UserSignupPublisher>();
-builder.Services.AddScoped<UserSignupConsumer>();
-builder.Services.AddScoped<IMessagePublisher, RabbitMqPublisher>();
+builder.Services.AddSingleton<IRedisService, RedisService>();
+builder.Services.AddScoped<IRedisTokenStore, RedisTokenStore>();
+builder.Services.AddScoped<IRabbitMessagePublisher, RabbitMessagePublisher>();
+builder.Services.AddHostedService<UserSignupConsumerService>();
+builder.Services.AddAuthorization();
+
 
 var app = builder.Build();
 
@@ -53,13 +67,6 @@ if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
-    await Task.Run(() =>
-    {
-        using var scope = app.Services.CreateScope();
-        var consumer = scope.ServiceProvider.GetRequiredService<UserSignupConsumer>();
-        consumer.Start();
-    });
-
 }
 
 app.UseStaticFiles();
@@ -71,6 +78,8 @@ app.UseStaticFiles(new StaticFileOptions
     RequestPath = ""
 });
 
+
+app.UseRouting();            // 라우팅 미들웨어
 app.UseHttpsRedirection();
 app.UseCors();
 app.UseAuthorization();
