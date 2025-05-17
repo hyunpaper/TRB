@@ -2,7 +2,7 @@ import { useState } from "react";
 import ChartAnalysisModal from "./ChartAnalysisModal";
 import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
 import LivePriceWidget from "./LivePriceWidget";
-import { useAuth } from "../../adapters.presentation/hooks/AuthContext"; // ✅ 추가
+import { useAuth } from "../../adapters.presentation/hooks/AuthContext"; 
 
 type Candle = {
   candle_date_time_kst: string;
