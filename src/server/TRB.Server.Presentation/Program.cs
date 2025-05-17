@@ -107,6 +107,7 @@ try
     builder.Services.AddScoped<IRabbitMessagePublisher, RabbitMessagePublisher>();
     builder.Services.AddHostedService<UserSignupConsumerService>();
 
+
     var app = builder.Build();
     app.UseWebSockets();
 

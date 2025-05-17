@@ -35,7 +35,7 @@ public class StrategyDatabaseWriter : BackgroundService, IStrategyDatabaseWriter
 
             foreach (var r in results)
             {
-                values.Add($"('{MySqlHelper.EscapeString(r.Market)}', {r.Timestamp}, {r.Rsi}, {r.Macd}, {r.Volatility}, {r.AskBidRatio}, {r.ChangeRate}, {r.TradeVolume}, '{MySqlHelper.EscapeString(r.GptRecommendation ?? "")}', '{r.CreatedAt:yyyy-MM-dd HH:mm:ss}')");
+                values.Add($"('{MySqlHelper.EscapeString(r.Market)}', {r.Timestamp}, {r.Rsi}, {r.Macd}, {r.Volatility}, {r.AskBidRatio}, {r.ChangeRate}, {r.TradeVolume}, '{MySqlHelper.EscapeString(r.GptRecommendation ?? "")}', '{DateTime.Now:yyyy-MM-dd HH:mm:ss}')");
             }
 
             var sql = $@"

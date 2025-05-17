@@ -14,5 +14,5 @@ public class StrategyAnalysisResultEntity
     public double TradeVolume { get; set; }
 
     public string? GptRecommendation { get; set; } // "매수", "매도", "대기" 등
-    public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+    public DateTime CreatedAt { get; set; } = DateTime.Now;
 }

@@ -23,7 +23,7 @@ public class StrategyAnalyzer
 
         if (prices.Count < LongEmaPeriod + 1)
         {
-            Console.WriteLine($"⚠️ {data.Market} 가격 기록 부족으로 분석 생략 (count={prices.Count})");
+            Console.WriteLine($" {data.Market} 가격 기록 부족으로 분석 생략 (count={prices.Count})");
             return Task.FromResult<StrategyAnalysisResultEntity?>(null);
         }
 
