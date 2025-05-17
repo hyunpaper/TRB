@@ -14,7 +14,23 @@ const markets = [
 export default function DashboardPage() {
   const [chartData, setChartData] = useState<Record<string, any[]>>({});
   const [showRegister, setShowRegister] = useState(false);
-const { isLoggedIn, email, role, nickname, profileImage, logout } = useAuth();
+  const { isLoggedIn, email, role, nickname, profileImage, logout } = useAuth();
+
+    // ✅ 추가: 이미지 모달 상태
+  const [showImageModal, setShowImageModal] = useState(false);
+  const [modalImageUrl, setModalImageUrl] = useState("");
+
+  // ✅ 이미지 클릭 핸들러
+  const handleImageClick = (url: string) => {
+    setModalImageUrl(url);
+    setShowImageModal(true);
+  };
+
+    const closeImageModal = () => {
+    setShowImageModal(false);
+    setModalImageUrl("");
+  };
+
 
   useEffect(() => {
     const fetchAll = async () => {
@@ -69,11 +85,12 @@ const { isLoggedIn, email, role, nickname, profileImage, logout } = useAuth();
               {/* 프로필 이미지 */}
               {profileImage && (
                 <div className="flex justify-center">
-                <img
-                  src={`http://localhost:5186${profileImage}`}
-                  alt="프로필 이미지"
-                  className="w-48 h-48 rounded-full border-2 border-gray-300 object-cover"
-                />
+                  <img
+                    src={`http://localhost:5186${profileImage}`}
+                    alt="프로필 이미지"
+                    className="w-48 h-48 rounded-full border-2 border-gray-300 object-cover cursor-pointer"
+                    onClick={() => handleImageClick(`http://localhost:5186${profileImage}`)}
+                  />
                 </div>
               )}
 
@@ -105,6 +122,18 @@ const { isLoggedIn, email, role, nickname, profileImage, logout } = useAuth();
       {showRegister && (
         <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex justify-center items-center">
           <RegisterPopup onClose={() => setShowRegister(false)} />
+        </div>
+      )}
+      {showImageModal && (
+        <div
+          className="fixed inset-0 z-50 bg-black bg-opacity-60 flex items-center justify-center cursor-pointer transition-opacity duration-300"
+          onClick={closeImageModal}
+        >
+          <img
+            src={modalImageUrl}
+            alt="확대된 프로필 이미지"
+            className="max-w-[80%] max-h-[80%] rounded-full border-1 border-black shadow-2xl object-cover transform scale-95 transition-transform duration-300 hover:scale-100"
+          />
         </div>
       )}
     </div>
