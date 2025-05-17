@@ -51,7 +51,7 @@ namespace TRB.Server.Application.Services
             {
                 Name = dto.Name,
                 Phone = dto.Phone,
-                BirthDate = dto.BirthDate,
+                BirthDate = dto.BirthDate.ToString("yyyy-mm-dd"),
                 Gender = dto.Gender,
                 Address = dto.Address,
                 Nickname = dto.Nickname,
@@ -87,7 +87,22 @@ namespace TRB.Server.Application.Services
                 RoleId = user.RoleId,
                 Role_name = roleName,
                 Nickname = profile?.Nickname,
-                ProfileImage = profile?.ProfileImage
+                ProfileImage = profile?.ProfileImage,
+            };
+        }
+        public async Task<UserProfileResponseDto?> GetProfileByUserIdAsync(int userId)
+        {
+            var profile = await _userRepository.GetProfileByUserIdAsync(userId);
+            if (profile == null) return null;
+
+            return new UserProfileResponseDto
+            {
+                Name = profile.Name,
+                Nickname = profile.Nickname ?? "",
+                BirthDate = DateTime.Parse(profile.BirthDate).ToString("yyyy-MM-dd"),
+                Gender = profile.Gender?.ToString() ?? "",
+                Address = profile.Address ?? "",
+                ProfileImage = profile.ProfileImage ?? ""
             };
         }
 

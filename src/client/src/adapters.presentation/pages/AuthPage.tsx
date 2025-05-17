@@ -49,6 +49,7 @@ export default function AuthPage({ mode = "page", onLoginSuccess, onShowRegister
       const profileImage = result.profileImage;
       const roleId = result.roleId;
       const userId = result.userId;
+      
 
       login(accessToken, refreshToken, email, roleName, nickname, profileImage, roleId, userId);
 

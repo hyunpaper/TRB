@@ -1,3 +1,6 @@
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 using TRB.Server.Application.Interfaces;
 using TRB.Server.Application.Services;
 using TRB.Server.Domain.Interfaces;
@@ -12,8 +15,28 @@ using TRB.Server.Infrastructure.Messaging;
 using TRB.Server.Presistance.Repositories.Commands;
 using Scrutor;
 
-
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+})
+.AddJwtBearer(options =>
+{
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidateLifetime = true,
+        ValidateIssuerSigningKey = true,
+        ValidIssuer = "TRB.Server",
+        ValidAudience = "TRB.Client",
+        IssuerSigningKey = new SymmetricSecurityKey(
+            Encoding.UTF8.GetBytes("ThisIsAVeryStrongSecretKeyForJWT2024!@#$"))
+    };
+});
+
+builder.Services.AddAuthorization();
 
 builder.Services.AddCors(options =>
 {
@@ -23,18 +46,18 @@ builder.Services.AddCors(options =>
             .WithOrigins("http://localhost:5173")
             .AllowAnyHeader()
             .AllowAnyMethod()
-            .AllowCredentials(); 
+            .AllowCredentials();
     });
 });
 
 DbConfig.Initialize(builder.Configuration);
-
 
 // DI 등록
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddHttpClient();
+
 builder.Services.Scan(scan => scan
     .FromAssemblies(
         typeof(UserService).Assembly,
@@ -51,15 +74,13 @@ builder.Services.Scan(scan => scan
         .AsSelf()
         .WithScopedLifetime()
 );
-builder.Services.AddSwaggerGen();
+
 builder.Services.AddSingleton<IRabbitMQFactory, RabbitMQFactory>();
 builder.Services.AddSingleton<IDbConnectionFactory, DbConnectionFactory>();
 builder.Services.AddSingleton<IRedisService, RedisService>();
 builder.Services.AddScoped<IRedisTokenStore, RedisTokenStore>();
 builder.Services.AddScoped<IRabbitMessagePublisher, RabbitMessagePublisher>();
 builder.Services.AddHostedService<UserSignupConsumerService>();
-builder.Services.AddAuthorization();
-
 
 var app = builder.Build();
 
@@ -70,7 +91,6 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseStaticFiles();
-
 app.UseStaticFiles(new StaticFileOptions
 {
     FileProvider = new PhysicalFileProvider(
@@ -78,10 +98,12 @@ app.UseStaticFiles(new StaticFileOptions
     RequestPath = ""
 });
 
-
-app.UseRouting();            // 라우팅 미들웨어
+app.UseRouting();
 app.UseHttpsRedirection();
 app.UseCors();
+
+app.UseAuthentication();    
 app.UseAuthorization();
+
 app.MapControllers();
 app.Run();

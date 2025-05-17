@@ -139,20 +139,18 @@ namespace TRB.Server.Presentation.Controllers
         }
 
         [Authorize]
-        [HttpPatch("profile")]
-        public async Task<IActionResult> UpdateProfile([FromBody] UserProfileUpdateRequestDto dto)
+        [HttpGet("profile")]
+        public async Task<IActionResult> GetProfile()
         {
             var userIdStr = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
             if (string.IsNullOrEmpty(userIdStr) || !int.TryParse(userIdStr, out var userId))
                 return Unauthorized("유효하지 않은 사용자입니다.");
 
-            var command = new UpdateUserProfileCommand(userId, dto);
-            var result = await _handler.HandleAsync(command);
+            var profile = await _userService.GetProfileByUserIdAsync(userId);
+            if (profile == null)
+                return NotFound("프로필 정보를 찾을 수 없습니다.");
 
-            if (!result)
-                return BadRequest("프로필 수정에 실패했습니다.");
-
-            return Ok("프로필이 성공적으로 수정되었습니다.");
+            return Ok(profile);
         }
 
 

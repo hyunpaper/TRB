@@ -21,8 +21,10 @@ D:\TRB\TRB\src\server\TRB.Server.Infrastructure\bin\Debug\net8.0\TRB.Server.Infr
 D:\TRB\TRB\src\server\TRB.Server.Infrastructure\bin\Debug\net8.0\TRB.Server.Infrastructure.pdb
 D:\TRB\TRB\src\server\TRB.Server.Infrastructure\bin\Debug\net8.0\TRB.Server.Application.dll
 D:\TRB\TRB\src\server\TRB.Server.Infrastructure\bin\Debug\net8.0\TRB.Server.Domain.dll
+D:\TRB\TRB\src\server\TRB.Server.Infrastructure\bin\Debug\net8.0\TRB.Server.Presistance.dll
 D:\TRB\TRB\src\server\TRB.Server.Infrastructure\bin\Debug\net8.0\TRB.Server.Application.pdb
 D:\TRB\TRB\src\server\TRB.Server.Infrastructure\bin\Debug\net8.0\TRB.Server.Domain.pdb
+D:\TRB\TRB\src\server\TRB.Server.Infrastructure\bin\Debug\net8.0\TRB.Server.Presistance.pdb
 D:\TRB\TRB\src\server\TRB.Server.Infrastructure\obj\Debug\net8.0\TRB.Server.Infrastructure.csproj.AssemblyReference.cache
 D:\TRB\TRB\src\server\TRB.Server.Infrastructure\obj\Debug\net8.0\TRB.Server.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
 D:\TRB\TRB\src\server\TRB.Server.Infrastructure\obj\Debug\net8.0\TRB.Server.Infrastructure.AssemblyInfoInputs.cache
@@ -34,5 +36,3 @@ D:\TRB\TRB\src\server\TRB.Server.Infrastructure\obj\Debug\net8.0\TRB.Server.Infr
 D:\TRB\TRB\src\server\TRB.Server.Infrastructure\obj\Debug\net8.0\refint\TRB.Server.Infrastructure.dll
 D:\TRB\TRB\src\server\TRB.Server.Infrastructure\obj\Debug\net8.0\TRB.Server.Infrastructure.pdb
 D:\TRB\TRB\src\server\TRB.Server.Infrastructure\obj\Debug\net8.0\ref\TRB.Server.Infrastructure.dll
-D:\TRB\TRB\src\server\TRB.Server.Infrastructure\bin\Debug\net8.0\TRB.Server.Presistance.dll
-D:\TRB\TRB\src\server\TRB.Server.Infrastructure\bin\Debug\net8.0\TRB.Server.Presistance.pdb

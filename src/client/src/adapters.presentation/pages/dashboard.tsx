@@ -5,6 +5,7 @@ import AuthPage from "../pages/AuthPage";
 import RegisterPopup from "./RegisterPopup";
 import { priceSocketService } from "../../adapters.infrastructure/sockets/PriceSocketService";
 import { useAuth } from "../hooks/AuthContext";
+import EditProfilePopup from "../components/EditProfilePopup";
 
 const markets = [
   "KRW-BTC", "KRW-ETH", "KRW-XRP", "KRW-DOGE", "KRW-SOL",
@@ -14,13 +15,15 @@ const markets = [
 export default function DashboardPage() {
   const [chartData, setChartData] = useState<Record<string, any[]>>({});
   const [showRegister, setShowRegister] = useState(false);
-  const { isLoggedIn, email, role, nickname, profileImage, logout } = useAuth();
+  const [showEditProfile, setShowEditProfile] = useState(false);
+  const { isLoggedIn, email, role, nickname, profileImage, logout, user, fetchProfile } = useAuth();
+  const [profileLoaded, setProfileLoaded] = useState(false);
 
-    // ✅ 추가: 이미지 모달 상태
+    // 이미지 모달 상태
   const [showImageModal, setShowImageModal] = useState(false);
   const [modalImageUrl, setModalImageUrl] = useState("");
 
-  // ✅ 이미지 클릭 핸들러
+  // 이미지 클릭 핸들러
   const handleImageClick = (url: string) => {
     setModalImageUrl(url);
     setShowImageModal(true);
@@ -46,7 +49,6 @@ export default function DashboardPage() {
       }
       setChartData(results);
     };
-
     fetchAll();
   }, []);
 
@@ -55,7 +57,20 @@ export default function DashboardPage() {
       priceSocketService.connect(markets);
     }
   }, []);
-
+  
+useEffect(() => {
+  if (isLoggedIn) {
+    fetchProfile()
+      .then(() => {
+        console.log("✅ 프로필 정보 불러옴");
+        setProfileLoaded(true); // ✅ 여기에 표시
+      })
+      .catch(() => {
+        console.error("❌ 프로필 불러오기 실패");
+        setProfileLoaded(false);
+      });
+  }
+}, [isLoggedIn]);
   return (
     <div className="flex h-screen bg-gradient-to-br from-gray-50 via-gray-100 to-gray-200">
       <div className="flex-1 overflow-y-auto px-8 py-6">
@@ -103,16 +118,22 @@ export default function DashboardPage() {
                   {role && <> · <span className="font-semibold">{role}</span></>}
                 </p>
               </div>
-
-              {/* 로그아웃 버튼 */}
-              <button
-                onClick={logout}
-                className="mt-4 w-full bg-red-500 hover:bg-red-600 text-white py-2 rounded"
-              >
-                로그아웃
-              </button>
+              {/* 프로필 수정 버튼 */}
+              <div className="flex flex-col gap-2">
+                <button
+                  onClick={() => setShowEditProfile(true)}
+                  className="w-full bg-gray-200 hover:bg-gray-300 text-gray-800 py-2 rounded"
+                >
+                  프로필 수정
+                </button>
+                <button
+                  onClick={logout}
+                  className="w-full bg-red-500 hover:bg-red-600 text-white py-2 rounded"
+                >
+                  로그아웃
+                </button>
+              </div>
             </div>
-
         )}
         <footer className="text-center text-gray-400 text-xs mt-8">
           &copy; {new Date().getFullYear()} TRB. All rights reserved.
@@ -136,6 +157,21 @@ export default function DashboardPage() {
           />
         </div>
       )}
+    {showEditProfile && user && (
+      <EditProfilePopup
+        email={email ?? ""}
+        name={user.name}
+        nickname={user.nickname}
+        birthDate={user.brith}
+        gender={user.gender}
+        address={user.address}
+        profileImage={user.profileImage}
+        onClose={() => setShowEditProfile(false)}
+        onSuccess={async () => {
+          await fetchProfile();
+        }}
+      />
+    )}
     </div>
   );
 }
