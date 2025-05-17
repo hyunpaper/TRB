@@ -14,6 +14,7 @@ type PriceHandler = (data: TickerData) => void;
 
 class PriceSocketService {
   private socket: WebSocket | null = null;
+  private backendSocket: WebSocket | null = null;
   private handlers: PriceHandler[] = [];
 
   isReady(): boolean {
@@ -21,37 +22,55 @@ class PriceSocketService {
   }
 
   connect(markets: string[]) {
-    if (this.socket || !markets.length) return;
+  if (this.socket || !markets.length) return;
 
-    this.socket = new WebSocket("wss://api.upbit.com/websocket/v1");
+  // 업비트 WebSocket 연결
+  this.socket = new WebSocket("wss://api.upbit.com/websocket/v1");
 
-    this.socket.onopen = () => {
-      const subscribeMsg = [
-        { ticket: "price-socket" },
-        { type: "ticker", codes: markets }
-      ];
-      this.socket?.send(JSON.stringify(subscribeMsg));
-    };
+  // 백엔드 WebSocket 연결
+  const backendSocket = new WebSocket("ws://localhost:5186/ws/price");
 
-    this.socket.onmessage = (event) => {
-      const blob = event.data;
-      const reader = new FileReader();
-      reader.onload = () => {
-        const text = reader.result as string;
-        const json = JSON.parse(text);
-        const data: TickerData = {
-          ...json,
-          market: json.code, // socket에서 오는 건 `code`, 우리 앱에서는 `market`을 사용
-        };
-        this.handlers.forEach((h) => h(data));
+  this.socket.onopen = () => {
+    const subscribeMsg = [
+      { ticket: "price-socket" },
+      { type: "ticker", codes: markets },
+    ];
+    this.socket?.send(JSON.stringify(subscribeMsg));
+  };
+
+  this.socket.onmessage = (event) => {
+    const blob = event.data;
+    const reader = new FileReader();
+    reader.onload = () => {
+      const text = reader.result as string;
+      const json = JSON.parse(text);
+      const data: TickerData = {
+        ...json,
+        market: json.code, // code → market 으로 통일
       };
-      reader.readAsText(blob);
-    };
 
-    this.socket.onerror = (err) => {
-      console.error("소켓 오류:", err);
+      // 프론트 핸들러에 전달
+      this.handlers.forEach((h) => h(data));
+
+      // 백엔드 WebSocket으로 전달
+      if (backendSocket.readyState === WebSocket.OPEN) {
+        backendSocket.send(JSON.stringify(data));
+      } else {
+        console.warn("Error : 백엔드 WebSocket이 아직 열려있지 않습니다.");
+      }
     };
-  }
+    reader.readAsText(blob);
+  };
+
+  this.socket.onerror = (err) => {
+    console.error("Error : 업비트 WebSocket 오류:", err);
+  };
+
+  backendSocket.onerror = (err) => {
+    console.error("Error : 백엔드 WebSocket 오류:", err);
+  };
+}
+
 
   on(event: "price", handler: PriceHandler) {
     if (event === "price") this.handlers.push(handler);

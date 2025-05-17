@@ -14,6 +14,8 @@ namespace TRB.Server.Domain.Interfaces
         Task<bool> InsertUserAndProfileAsync(User user, UserProfile profile);
         Task<(User user, UserProfile? profile, string roleName)?> GetWithProfileByEmailAsync(string email);
         Task<bool> UpdateUserProfileAsync(int userId, UserProfileValue value);
+        Task<UserProfile?> GetProfileByUserIdAsync(int userId);
+
     }
 
 }

@@ -230,29 +230,10 @@
       }
     },
     "/api/User/profile": {
-      "patch": {
+      "get": {
         "tags": [
           "User"
         ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/UserProfileUpdateRequestDto"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/UserProfileUpdateRequestDto"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/UserProfileUpdateRequestDto"
-              }
-            }
-          }
-        },
         "responses": {
           "200": {
             "description": "OK"
@@ -285,33 +266,6 @@
             "format": "int32"
           },
           "refreshToken": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "UserProfileUpdateRequestDto": {
-        "type": "object",
-        "properties": {
-          "birthDate": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "gender": {
-            "type": "string",
-            "nullable": true
-          },
-          "address": {
-            "type": "string",
-            "nullable": true
-          },
-          "nickname": {
-            "type": "string",
-            "nullable": true
-          },
-          "profileImage": {
             "type": "string",
             "nullable": true
           }

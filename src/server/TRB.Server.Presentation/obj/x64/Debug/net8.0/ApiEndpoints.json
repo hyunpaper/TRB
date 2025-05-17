@@ -146,18 +146,12 @@
   },
   {
     "ContainingType": "TRB.Server.Presentation.Controllers.UserController",
-    "Method": "UpdateProfile",
+    "Method": "GetProfile",
     "RelativePath": "api/User/profile",
-    "HttpMethod": "PATCH",
+    "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [
-      {
-        "Name": "dto",
-        "Type": "TRB.Server.Application.api.requestbodies.UserProfileUpdateRequestDto",
-        "IsRequired": true
-      }
-    ],
+    "Parameters": [],
     "ReturnTypes": []
   }
 ]

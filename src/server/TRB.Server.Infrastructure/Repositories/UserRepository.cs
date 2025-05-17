@@ -247,5 +247,41 @@ namespace TRB.Server.Infrastructure.Repositories
             var affected = await command.ExecuteNonQueryAsync();
             return affected > 0;
         }
+
+        public async Task<UserProfile?> GetProfileByUserIdAsync(int userId)
+        {
+            using var conn = _connectionFactory.Conn();
+            await conn.OpenAsync();
+
+            using var command = conn.CreateCommand();
+            command.CommandText = @"
+                                    SELECT user_id, name, phone, birth_date, gender, address, nickname, profile_image, created_at, updated_at
+                                    FROM user_profiles
+                                    WHERE user_id = @UserId
+                                    LIMIT 1";
+
+            command.Parameters.AddWithValue("@UserId", userId);
+
+            using var reader = await command.ExecuteReaderAsync();
+            if (!await reader.ReadAsync())
+                return null;
+
+            return new UserProfile
+            {
+                UserId = Convert.ToInt32(reader["user_id"]),
+                Name = reader["name"].ToString() ?? "",
+                Phone = reader["phone"].ToString() ?? "",
+                BirthDate = reader["birth_date"].ToString() ?? "",
+                Gender = reader["gender"] == DBNull.Value ? null : Convert.ToChar(reader["gender"]),
+                Address = reader["address"]?.ToString(),
+                Nickname = reader["nickname"]?.ToString(),
+                ProfileImage = reader["profile_image"]?.ToString(),
+                CreatedAt = Convert.ToDateTime(reader["created_at"]),
+                UpdatedAt = Convert.ToDateTime(reader["updated_at"])
+            };
+        }
+
+
+
     }
 }

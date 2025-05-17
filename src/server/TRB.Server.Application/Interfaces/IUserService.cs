@@ -17,6 +17,7 @@ namespace TRB.Server.Application.Interfaces
         Task<bool> LoginAsync(LoginDto dto);
         Task<bool> SignupAsync(UserSignupDto dto);
         Task<UserLoginResponseDto?> GetLoginInfoByEmailAsync(string email);
+        Task<UserProfileResponseDto?> GetProfileByUserIdAsync(int userId);
     }
 
 }

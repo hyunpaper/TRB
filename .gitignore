@@ -1,6 +1,7 @@
 # Node
 node_modules/
 dist/
+*.ph.pages
 
 # .NET
 bin/
@@ -11,6 +12,8 @@ obj/
 *.cache
 *.json
 *.pdb
+*.log
+
 
 # Build
 *.log

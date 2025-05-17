@@ -60,7 +60,7 @@ namespace TRB.Server.Presentation.Consumers
                 {
                     Name = message.Name,
                     Phone = message.Phone,
-                    BirthDate = message.BirthDate,
+                    BirthDate = message.BirthDate.ToString("yyyy-MM-dd"),
                     Gender = message.Gender,
                     Address = message.Address,
                     Nickname = message.Nickname,

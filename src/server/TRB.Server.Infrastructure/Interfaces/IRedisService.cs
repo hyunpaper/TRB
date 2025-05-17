@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using TRB.Server.Presentation.Models;
 
 namespace TRB.Server.Infrastructure.Interfaces
 {
@@ -12,6 +8,9 @@ namespace TRB.Server.Infrastructure.Interfaces
         Task<string?> GetAsync(string key);
         Task<bool> ExistsAsync(string key);
         Task<bool> DeleteAsync(string key);
-    }
 
+        // 전략 분석 전용 기능
+        Task SaveLatestAsync(StrategyAnalysisResultEntity strategy);
+        Task SaveToBufferAsync(StrategyAnalysisResultEntity strategy);
+    }
 }
